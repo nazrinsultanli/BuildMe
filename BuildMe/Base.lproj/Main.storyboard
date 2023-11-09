@@ -6,6 +6,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -215,19 +216,58 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NvY-N7-uOs">
-                                <rect key="frame" x="20" y="263" width="353" height="506"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tI7-Z4-Y3N">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HJp-UA-TpA">
+                                <rect key="frame" x="16" y="259" width="361" height="510"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="13" minimumInteritemSpacing="13" id="Fub-Hf-xEo">
                                     <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="54" height="74"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells/>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aVb-Pe-1Zq">
-                                    <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeVerticalCollectionViewCell" id="EI1-Iw-hIU">
+                                        <rect key="frame" x="0.0" y="74" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GIC-ZA-pL6">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="0.85882353779999998" green="0.47843140360000003" blue="0.5647059083" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HomeCategoryHeaderView" id="tdi-IT-FXv" customClass="HomeCategoryHeaderView" customModule="BuildMe" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="361" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mNU-lC-h3m">
+                                            <rect key="frame" x="8" y="8" width="345" height="58"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="16" minimumInteritemSpacing="16" id="b8k-Zb-oJl">
+                                                <size key="itemSize" width="105" height="44"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="tdi-IT-FXv" id="8eK-Y8-tui"/>
+                                                <outlet property="delegate" destination="tdi-IT-FXv" id="Dm9-R5-hvo"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="mNU-lC-h3m" secondAttribute="bottom" id="2UX-4O-9Mj"/>
+                                        <constraint firstItem="mNU-lC-h3m" firstAttribute="top" secondItem="tdi-IT-FXv" secondAttribute="topMargin" id="55d-UH-QuK"/>
+                                        <constraint firstItem="mNU-lC-h3m" firstAttribute="leading" secondItem="tdi-IT-FXv" secondAttribute="leadingMargin" id="WnI-A9-R1N"/>
+                                        <constraint firstItem="mNU-lC-h3m" firstAttribute="trailing" secondItem="tdi-IT-FXv" secondAttribute="trailingMargin" id="esD-Mq-cFi"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="collectionViewHeader" destination="mNU-lC-h3m" id="KsP-gI-TEq"/>
+                                    </connections>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
@@ -235,18 +275,21 @@
                         <color key="backgroundColor" name="backgroundC"/>
                         <constraints>
                             <constraint firstItem="YU7-yV-kLq" firstAttribute="leading" secondItem="llm-0d-1zl" secondAttribute="leading" constant="20" id="9Ew-XJ-GUc"/>
-                            <constraint firstItem="llm-0d-1zl" firstAttribute="trailing" secondItem="NvY-N7-uOs" secondAttribute="trailing" constant="20" id="EV5-VK-Wsm"/>
+                            <constraint firstItem="llm-0d-1zl" firstAttribute="trailing" secondItem="HJp-UA-TpA" secondAttribute="trailing" constant="16" id="9fh-uz-xaJ"/>
                             <constraint firstItem="YU7-yV-kLq" firstAttribute="top" secondItem="APF-Cg-DvE" secondAttribute="bottom" constant="10" id="Nav-P0-Mcn"/>
+                            <constraint firstItem="llm-0d-1zl" firstAttribute="bottom" secondItem="HJp-UA-TpA" secondAttribute="bottom" id="Oov-GV-tex"/>
                             <constraint firstItem="llm-0d-1zl" firstAttribute="trailing" secondItem="YU7-yV-kLq" secondAttribute="trailing" constant="20" id="OzC-zW-7hD"/>
+                            <constraint firstItem="HJp-UA-TpA" firstAttribute="top" secondItem="YU7-yV-kLq" secondAttribute="bottom" constant="16" id="PN9-Hx-44T"/>
                             <constraint firstItem="llm-0d-1zl" firstAttribute="trailing" secondItem="APF-Cg-DvE" secondAttribute="trailing" constant="20" id="RNi-aW-9o6"/>
-                            <constraint firstItem="llm-0d-1zl" firstAttribute="bottom" secondItem="NvY-N7-uOs" secondAttribute="bottom" id="eBQ-rq-xQc"/>
-                            <constraint firstItem="NvY-N7-uOs" firstAttribute="leading" secondItem="llm-0d-1zl" secondAttribute="leading" constant="20" id="fCa-lk-Zcr"/>
+                            <constraint firstItem="HJp-UA-TpA" firstAttribute="leading" secondItem="llm-0d-1zl" secondAttribute="leading" constant="16" id="ShO-7j-bHZ"/>
                             <constraint firstItem="APF-Cg-DvE" firstAttribute="leading" secondItem="llm-0d-1zl" secondAttribute="leading" constant="20" id="gkI-5x-gob"/>
                             <constraint firstItem="APF-Cg-DvE" firstAttribute="top" secondItem="llm-0d-1zl" secondAttribute="top" constant="4" id="lQ7-fC-JlF"/>
-                            <constraint firstItem="NvY-N7-uOs" firstAttribute="top" secondItem="YU7-yV-kLq" secondAttribute="bottom" constant="20" id="viT-Ix-s9P"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="diO-QW-uA6"/>
+                    <connections>
+                        <outlet property="collectionViewm" destination="HJp-UA-TpA" id="4Ox-an-9og"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eIT-Do-fdh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -282,10 +325,10 @@
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="backgroundC">
-            <color red="0.95294117647058818" green="0.95686274509803915" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.95300000905990601" green="0.9570000171661377" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="mainC">
-            <color red="0.58823529411764708" green="0.50980392156862742" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.58799999952316284" green="0.50999999046325684" blue="0.71399998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

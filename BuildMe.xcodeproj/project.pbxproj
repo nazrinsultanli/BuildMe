@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		108305EB2AFD2E30007D48A9 /* HomeCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108305EA2AFD2E30007D48A9 /* HomeCategoryHeaderView.swift */; };
+		108305EE2AFD30D8007D48A9 /* HomeCategoryHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108305EC2AFD30D8007D48A9 /* HomeCategoryHeaderCell.swift */; };
+		108305EF2AFD30D8007D48A9 /* HomeCategoryHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 108305ED2AFD30D8007D48A9 /* HomeCategoryHeaderCell.xib */; };
 		10C754862AF69513004ED063 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C754852AF69513004ED063 /* AppDelegate.swift */; };
 		10C754882AF69513004ED063 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C754872AF69513004ED063 /* SceneDelegate.swift */; };
 		10C7548D2AF69513004ED063 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C7548B2AF69513004ED063 /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		108305EA2AFD2E30007D48A9 /* HomeCategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryHeaderView.swift; sourceTree = "<group>"; };
+		108305EC2AFD30D8007D48A9 /* HomeCategoryHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryHeaderCell.swift; sourceTree = "<group>"; };
+		108305ED2AFD30D8007D48A9 /* HomeCategoryHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCategoryHeaderCell.xib; sourceTree = "<group>"; };
 		10C754822AF69513004ED063 /* BuildMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C754852AF69513004ED063 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10C754872AF69513004ED063 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +55,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		108305E92AFD2AD0007D48A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				108305EA2AFD2E30007D48A9 /* HomeCategoryHeaderView.swift */,
+				108305EC2AFD30D8007D48A9 /* HomeCategoryHeaderCell.swift */,
+				108305ED2AFD30D8007D48A9 /* HomeCategoryHeaderCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		10C754792AF69513004ED063 = {
 			isa = PBXGroup;
 			children = (
@@ -68,8 +84,8 @@
 		10C754842AF69513004ED063 /* BuildMe */ = {
 			isa = PBXGroup;
 			children = (
+				108305E92AFD2AD0007D48A9 /* View */,
 				10C754A42AF6970A004ED063 /* Model */,
-				10C754A22AF696F3004ED063 /* View */,
 				10C754A32AF696FF004ED063 /* Controller */,
 				10C754A12AF696E9004ED063 /* ViewModel */,
 				10C754852AF69513004ED063 /* AppDelegate.swift */,
@@ -88,13 +104,6 @@
 			children = (
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		10C754A22AF696F3004ED063 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		10C754A32AF696FF004ED063 /* Controller */ = {
@@ -183,6 +192,7 @@
 				10C754952AF69514004ED063 /* LaunchScreen.storyboard in Resources */,
 				10C754922AF69514004ED063 /* Assets.xcassets in Resources */,
 				10C7548D2AF69513004ED063 /* Main.storyboard in Resources */,
+				108305EF2AFD30D8007D48A9 /* HomeCategoryHeaderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,8 +203,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				108305EE2AFD30D8007D48A9 /* HomeCategoryHeaderCell.swift in Sources */,
 				10C754AC2AF6997A004ED063 /* FavoritePageViewController.swift in Sources */,
 				10C754A82AF69902004ED063 /* HomePageViewController.swift in Sources */,
+				108305EB2AFD2E30007D48A9 /* HomeCategoryHeaderView.swift in Sources */,
 				10C754862AF69513004ED063 /* AppDelegate.swift in Sources */,
 				10C754902AF69513004ED063 /* BuildMe.xcdatamodeld in Sources */,
 				10C754AE2AF699C7004ED063 /* BasketPageViewController.swift in Sources */,
