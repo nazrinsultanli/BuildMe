@@ -16,9 +16,9 @@ class HomeCategoryHeaderCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setUpHeader(title:String, image:String){
-        categoryLabel.text = "aaa"
-        categoryImage.image  = UIImage(named: image)
-    }
+//    func setUpHeader(title:String, image:String){
+//        categoryLabel.text = "aaa"
+//        categoryImage.image  = UIImage(named: image)
+//    }
 
 }
