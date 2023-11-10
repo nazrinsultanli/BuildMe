@@ -37,11 +37,13 @@ class HomePageViewController: UIViewController {
 
 extension HomePageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionViewm.dequeueReusableCell(withReuseIdentifier: "HomeVerticalCollectionViewCell", for: indexPath)
         cell.layer.cornerRadius = 35
         return cell

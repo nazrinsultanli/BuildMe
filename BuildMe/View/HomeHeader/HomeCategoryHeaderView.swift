@@ -31,7 +31,7 @@ extension HomeCategoryHeaderView: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionViewHeader.dequeueReusableCell(withReuseIdentifier: "\(HomeCategoryHeaderCell.self)", for: indexPath) as! HomeCategoryHeaderCell
-        cell.categoryLabel.text = "aa"
+        cell.setUpHeader(title: "aa", image: "plus")
         return cell
     }
     

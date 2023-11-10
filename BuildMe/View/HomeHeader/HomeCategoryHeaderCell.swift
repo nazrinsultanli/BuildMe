@@ -15,5 +15,10 @@ class HomeCategoryHeaderCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func setUpHeader(title:String, image:String){
+        categoryLabel.text = "aaa"
+        categoryImage.image  = UIImage(named: image)
+    }
 
 }
