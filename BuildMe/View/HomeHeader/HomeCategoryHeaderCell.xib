@@ -19,7 +19,7 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qT4-ww-5Eu">
                         <rect key="frame" x="0.0" y="0.0" width="361" height="404"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="69"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="151"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
