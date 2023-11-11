@@ -8,14 +8,20 @@
 import UIKit
 
 class HomePageViewController: UIViewController {
-    @IBOutlet weak var collectionViewm: UICollectionView!
+
+    
+    @IBOutlet weak var tableViewm: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "BuildMe"
-        collectionViewm.delegate = self
-        collectionViewm.dataSource =  self
-        //button.imageEdgeInsets = UIEdgeInsetsMake(25,25,25,25)
+        tableViewm.delegate = self
+        tableViewm.dataSource =  self
+        
+        tableViewm.register(UINib(nibName: "\(HomeProductTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "HomeProductTableViewCell")
+        
+        tableViewm.register(UINib(nibName: "\(HomeCategoryTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "HomeCategoryTableViewCell")
+        
         configure()
 
         // Do any additional setup after loading the view.
@@ -35,32 +41,79 @@ class HomePageViewController: UIViewController {
 
 }
 
-extension HomePageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
     
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+    func numberOfSections(in tableView: UITableView) -> Int {
+        4
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch (section) {
+        case 0:
+            return ""
+        case 1:
+            return "aaa"
+        case 2:
+            return "bb"
+        case 3:
+            return "cc"
+        default:
+            return "-----"
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = collectionViewm.dequeueReusableCell(withReuseIdentifier: "HomeVerticalCollectionViewCell", for: indexPath)
-        cell.layer.cornerRadius = 35
-        return cell
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        .init(width: collectionViewm.frame.width*0.835, height: 237)
-    }
-    
-    // header
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionViewm.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "\(HomeCategoryHeaderView.self)", for: indexPath) as! HomeCategoryHeaderView
-       
+        switch (indexPath.section ) {
+        case 0:
+            let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(HomeCategoryTableViewCell.self)", for: indexPath) as! HomeCategoryTableViewCell
+            //        cell.setUpHeader(title: "aa", image: "plus")
+            return cell
+            
+        case 1:
+            let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(HomeProductTableViewCell.self)", for: indexPath) as! HomeProductTableViewCell
+            //        cell.setUpHeader(title: "aa", image: "plus")
+            return cell
+        case 2:
+            let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(HomeProductTableViewCell.self)", for: indexPath) as! HomeProductTableViewCell
+            //        cell.setUpHeader(title: "aa", image: "plus")
+            return cell
+        case 3:
+            let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(HomeProductTableViewCell.self)", for: indexPath) as! HomeProductTableViewCell
+            //        cell.setUpHeader(title: "aa", image: "plus")
+            return cell
+        default:
+            return UITableViewCell()
+        }
         
-        
-        return header
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch (indexPath.section) {
+        case 0:
+            return 100
+            
+        default:
+            return 200
+        }
+    }
+    
+    
 }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   

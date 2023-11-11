@@ -17,24 +17,37 @@
                 <rect key="frame" x="0.0" y="0.0" width="361" height="404"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qT4-ww-5Eu">
-                        <rect key="frame" x="0.0" y="0.0" width="361" height="404"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="151"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmW-Ba-Exa">
+                        <rect key="frame" x="20" y="344" width="321" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="SXJ-G3-Q5w"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PCV-yv-WD6">
+                        <rect key="frame" x="10" y="10" width="341" height="294"/>
+                    </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" systemColor="systemYellowColor"/>
             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="qT4-ww-5Eu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="JSl-8e-AtL"/>
-                <constraint firstItem="qT4-ww-5Eu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="i11-g5-Vfm"/>
-                <constraint firstAttribute="bottom" secondItem="qT4-ww-5Eu" secondAttribute="bottom" id="oDb-Oz-tgo"/>
-                <constraint firstAttribute="trailing" secondItem="qT4-ww-5Eu" secondAttribute="trailing" id="of7-n4-hmd"/>
+                <constraint firstAttribute="bottom" secondItem="cmW-Ba-Exa" secondAttribute="bottom" constant="20" id="CvG-mK-8kd"/>
+                <constraint firstAttribute="trailing" secondItem="PCV-yv-WD6" secondAttribute="trailing" constant="10" id="EIS-fh-Np0"/>
+                <constraint firstItem="cmW-Ba-Exa" firstAttribute="top" secondItem="PCV-yv-WD6" secondAttribute="bottom" constant="40" id="Hjp-ic-svH"/>
+                <constraint firstItem="PCV-yv-WD6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Kp6-5B-djK"/>
+                <constraint firstAttribute="trailing" secondItem="cmW-Ba-Exa" secondAttribute="trailing" constant="20" id="XDi-W3-71u"/>
+                <constraint firstItem="cmW-Ba-Exa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="dmF-jD-91t"/>
+                <constraint firstItem="PCV-yv-WD6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="xz4-Si-FGr"/>
             </constraints>
             <size key="customSize" width="526" height="404"/>
+            <connections>
+                <outlet property="categoryImage" destination="PCV-yv-WD6" id="gLl-zx-edl"/>
+                <outlet property="categoryLabel" destination="cmW-Ba-Exa" id="50V-mH-pri"/>
+            </connections>
             <point key="canvasLocation" x="374.04580152671753" y="104.92957746478874"/>
         </collectionViewCell>
     </objects>
