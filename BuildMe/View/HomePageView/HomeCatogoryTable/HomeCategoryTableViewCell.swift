@@ -35,9 +35,9 @@ extension HomeCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        .init(width: 54, height: collectionViewm.frame.height)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        .init(width: 80, height: 80)
+    }
     
     
 }

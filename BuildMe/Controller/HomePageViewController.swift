@@ -24,17 +24,12 @@ class HomePageViewController: UIViewController {
         
         configure()
 
-        // Do any additional setup after loading the view.
     }
     
-//    func configure (){
-////        collectionViewm.register(UINib(nibName: "\(HomeCategoryHeaderReusableView.self)", bundle: nil), forCellWithReuseIdentifier: "HomeCategoryHeaderReusableView")
-//        
-//        
-//    }
+
     
     func configure () {
-//        collectionViewHeader.register(UINib(nibName: "\(HomeCategoryHeaderCell.self)", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeCategoryHeaderCell")
+
     }
 
 
@@ -52,11 +47,11 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return ""
         case 1:
-            return "aaa"
+            return "New Products"
         case 2:
-            return "bb"
+            return "Discounted Products"
         case 3:
-            return "cc"
+            return "Featured Products"
         default:
             return "-----"
         }

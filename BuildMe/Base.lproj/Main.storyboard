@@ -6,7 +6,6 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -149,70 +148,26 @@
                                     <constraint firstAttribute="bottom" secondItem="Ojw-c7-xG7" secondAttribute="bottom" id="VaS-6y-6MV"/>
                                 </constraints>
                             </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UCD-0Q-cDS">
-                                <rect key="frame" x="0.0" y="169" width="393" height="600"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="N9a-vu-mlQ">
-                                    <size key="itemSize" width="129" height="70"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CatalogTypesViewCell" id="WDl-O2-8KK" customClass="CatalogTypesViewCell" customModule="BuildMe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GoO-Pf-OUa">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="70"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOb-cd-PgK">
-                                                    <rect key="frame" x="4" y="4" width="112" height="62"/>
-                                                    <color key="backgroundColor" name="mainC"/>
-                                                </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gtg-Yy-0Ol">
-                                                    <rect key="frame" x="4" y="4" width="112" height="62"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Gtg-Yy-0Ol" secondAttribute="trailing" constant="4" id="008-E7-5wh"/>
-                                                <constraint firstAttribute="bottom" secondItem="Gtg-Yy-0Ol" secondAttribute="bottom" constant="4" id="3AB-zD-1Wb"/>
-                                                <constraint firstItem="Gtg-Yy-0Ol" firstAttribute="leading" secondItem="GoO-Pf-OUa" secondAttribute="leading" constant="4" id="9KL-DY-vuU"/>
-                                                <constraint firstAttribute="trailing" secondItem="bOb-cd-PgK" secondAttribute="trailing" constant="4" id="9t7-do-jFN"/>
-                                                <constraint firstItem="bOb-cd-PgK" firstAttribute="leading" secondItem="GoO-Pf-OUa" secondAttribute="leading" constant="4" id="K5V-2l-vMS"/>
-                                                <constraint firstAttribute="bottom" secondItem="bOb-cd-PgK" secondAttribute="bottom" constant="4" id="LtN-BK-gBw"/>
-                                                <constraint firstItem="bOb-cd-PgK" firstAttribute="top" secondItem="GoO-Pf-OUa" secondAttribute="top" constant="4" id="woM-ST-Gra"/>
-                                                <constraint firstItem="Gtg-Yy-0Ol" firstAttribute="top" secondItem="GoO-Pf-OUa" secondAttribute="top" constant="4" id="zTB-x6-cbS"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <color key="backgroundColor" name="backgroundC"/>
-                                        <size key="customSize" width="120" height="70"/>
-                                        <connections>
-                                            <outlet property="backColor" destination="bOb-cd-PgK" id="U4J-DO-xGd"/>
-                                            <outlet property="categoryName" destination="Gtg-Yy-0Ol" id="bZv-K1-LRm"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QsX-ka-riH">
+                                <rect key="frame" x="20" y="177" width="353" height="592"/>
+                                <color key="backgroundColor" name="backgroundC"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="backgroundC"/>
                         <constraints>
-                            <constraint firstItem="UCD-0Q-cDS" firstAttribute="top" secondItem="fyo-U5-ufg" secondAttribute="bottom" constant="12" id="1J9-7z-f3N"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UCD-0Q-cDS" secondAttribute="bottom" id="GzI-56-QCb"/>
+                            <constraint firstItem="QsX-ka-riH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="0iy-Pd-oaF"/>
                             <constraint firstItem="fyo-U5-ufg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="4" id="Ui3-5S-X9d"/>
-                            <constraint firstItem="UCD-0Q-cDS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dhd-h9-L2e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QsX-ka-riH" secondAttribute="trailing" constant="20" id="Wee-T5-1G1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fyo-U5-ufg" secondAttribute="trailing" constant="12" id="fKp-0m-WTr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UCD-0Q-cDS" secondAttribute="trailing" id="gr2-8v-Ql2"/>
+                            <constraint firstItem="QsX-ka-riH" firstAttribute="top" secondItem="fyo-U5-ufg" secondAttribute="bottom" constant="20" id="m6Z-RA-CgW"/>
                             <constraint firstItem="fyo-U5-ufg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="oQj-fx-uzG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QsX-ka-riH" secondAttribute="bottom" id="vH7-KW-9gI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Catalog" id="kyz-E5-XjV"/>
                     <connections>
-                        <outlet property="collectionView" destination="UCD-0Q-cDS" id="jOb-Fe-6rk"/>
+                        <outlet property="tableViewm" destination="QsX-ka-riH" id="SP8-wK-2RE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -532,7 +487,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tw2-oN-JkN">
                                 <rect key="frame" x="0.0" y="263" width="393" height="506"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="backgroundC"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="llm-0d-1zl"/>

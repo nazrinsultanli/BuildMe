@@ -8,67 +8,74 @@
 import UIKit
 
 class CatalogPageViewController: UIViewController {
+    @IBOutlet weak var tableViewm: UITableView!
+    
 
-    @IBOutlet weak var collectionView: UICollectionView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Catalog"
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        tableViewm.delegate = self
+        tableViewm.dataSource = self
         
+
+        tableViewm.register(UINib(nibName: "\(CatalogCategoryTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "CatalogCategoryTableViewCell")
         
-//        collectionView.register(UINib(nibName: "CatalogTypesViewCell", bundle: nil), forCellWithReuseIdentifier: "CatalogTypesViewCell")
-        collectionView.register(UINib(nibName: "HomeHorizontalItemCell", bundle: nil), forCellWithReuseIdentifier: "HomeHorizontalItemCell")
+        tableViewm.register(UINib(nibName: "\(CatalogProductTableCell.self)", bundle: nil), forCellReuseIdentifier: "CatalogProductTableCell")
+        
         
     }
 }
 
 
-extension CatalogPageViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-  
+extension CatalogPageViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2 // One section for catalog types, another for catalog items
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return 3
-        }
-        else{
-            return 5
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch (section) {
+        case 0:
+            return ""
+        case 1:
+            return "  "
+        default:
+            return "-----"
         }
     }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            // Return a catalog type cell
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CatalogTypesViewCell", for: indexPath) as! CatalogTypesViewCell
-            // Configure the cell for catalog types
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        switch (indexPath.section ) {
+        case 0:
+            let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(CatalogCategoryTableViewCell.self)", for: indexPath) as! CatalogCategoryTableViewCell
+            //        cell.setUpHeader(title: "aa", image: "plus")
             return cell
-        } else {
-            // Return a catalog item cell
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeHorizontalItemCell", for: indexPath) as! HomeHorizontalItemCell
-            // Configure the cell for catalog items
+            
+        case 1:
+            let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(CatalogProductTableCell.self)", for: indexPath) as! CatalogProductTableCell
+            //        cell.setUpHeader(title: "aa", image: "plus")
             return cell
+        default:
+            return UITableViewCell()
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch (indexPath.section) {
+        case 0:
+            return 50
+            
+        default:
+            return 700
         }
     }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("Size calculation for indexPath: \(indexPath)")
-
-            if indexPath.section == 0 {
-                // Size for horizontal cell
-                
-                return CGSize(width: collectionView.frame.width, height: 100)
-            } else {
-                // Size for vertical cell with 2 columns
-                let width = (collectionView.frame.width - 20) / 2 // Subtract 20 for spacing between items
-                return CGSize(width: width, height: width) // Assuming square items, adjust height as needed
-            }
-        }
     
 }
 

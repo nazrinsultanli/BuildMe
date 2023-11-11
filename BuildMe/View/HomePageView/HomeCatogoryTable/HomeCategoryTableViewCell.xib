@@ -3,8 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,20 +18,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="N6C-Ai-Ojp">
-                        <rect key="frame" x="0.0" y="0.0" width="378" height="277"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z0F-f4-sKt">
-                            <size key="itemSize" width="200" height="200"/>
+                        <rect key="frame" x="20" y="0.0" width="358" height="277"/>
+                        <color key="backgroundColor" name="backgroundC"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="40" minimumInteritemSpacing="40" id="z0F-f4-sKt">
+                            <size key="itemSize" width="80" height="80"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
+                <color key="backgroundColor" name="backgroundC"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="N6C-Ai-Ojp" secondAttribute="trailing" id="AGH-kP-ziy"/>
                     <constraint firstAttribute="bottom" secondItem="N6C-Ai-Ojp" secondAttribute="bottom" id="TK8-AC-zNe"/>
-                    <constraint firstItem="N6C-Ai-Ojp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bGo-kq-5xL"/>
+                    <constraint firstItem="N6C-Ai-Ojp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="bGo-kq-5xL"/>
                     <constraint firstItem="N6C-Ai-Ojp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="d93-I2-eFU"/>
                 </constraints>
             </tableViewCellContentView>
@@ -43,8 +44,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="backgroundC">
+            <color red="0.95300000905990601" green="0.9570000171661377" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
