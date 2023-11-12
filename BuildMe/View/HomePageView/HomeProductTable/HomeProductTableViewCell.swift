@@ -36,7 +36,6 @@ extension HomeProductTableViewCell: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeHorizontalItemCell", for: indexPath) as! HomeHorizontalItemCell
         cell.setHomeProductData(product: viewModel.filteredProducts[indexPath.item])
-        print("pdrd")
         return cell
     }
     

@@ -30,7 +30,6 @@ class HomeCategoryTableViewCell: UITableViewCell {
 
 extension HomeCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(viewModel.categoryData.count)
         return viewModel.categoryData.count
     }
     
@@ -45,6 +44,15 @@ extension HomeCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewD
         .init(width: 80, height: 80)
     }
     
+
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let catalogPageViewController = storyboard.instantiateViewController(withIdentifier: "CatalogPageViewController") as! CatalogPageViewController
+        catalogPageViewController.viewModel.selectedCategoryType = viewModel.categoryData[indexPath.item].categoryType
+        self.window?.rootViewController?.show(catalogPageViewController, sender: nil)
+    }
+
 }
 

@@ -9,10 +9,22 @@ import UIKit
 
 class CatalogTypesCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var backColor: UIView!
     @IBOutlet weak var categoryName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setView()
+    
     }
 
+    func setCatalogCategoryData(category: Categories){
+        self.categoryName.text = category.categoryType?.rawValue
+    }
+
+    
+    func setView(){
+        backColor.layer.cornerRadius = 15
+        backColor.layer.borderWidth = 1
+        backColor.layer.borderColor = UIColor.clear.cgColor
+    }
 }

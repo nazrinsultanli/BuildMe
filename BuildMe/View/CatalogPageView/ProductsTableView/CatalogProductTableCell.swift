@@ -10,29 +10,33 @@ import UIKit
 class CatalogProductTableCell: UITableViewCell {
     @IBOutlet weak var collectionViem: UICollectionView!
     
+    var viewModel = CatalogPageViewModel()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        setCollectionView()
+        }
+    
+    func setCollectionView(){
         collectionViem.dataSource = self
         collectionViem.dataSource = self
         
         let nib = UINib(nibName: "\(CategoryProductCollectionViewCell.self)", bundle: nil)
         collectionViem.register(nib, forCellWithReuseIdentifier: "CategoryProductCollectionViewCell")
-        }
-    
+    }
 
-    
-    
 }
 
 
 
 extension CatalogProductTableCell: UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        viewModel.filteredProduct.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryProductCollectionViewCell", for: indexPath) as! CategoryProductCollectionViewCell
+        cell.setCatalogProduct(product: viewModel.filteredProduct[indexPath.item])
         return cell
     }
     

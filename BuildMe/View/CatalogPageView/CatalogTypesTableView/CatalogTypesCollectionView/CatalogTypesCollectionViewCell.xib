@@ -17,6 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hz7-AX-Wgp">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
+                        <color key="backgroundColor" name="mainC"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOA-a9-hhE">
                         <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -26,14 +30,19 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" name="mainC"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="hz7-AX-Wgp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="6ba-vW-3MF"/>
+                <constraint firstItem="hz7-AX-Wgp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="86z-Ve-EI2"/>
                 <constraint firstItem="zOA-a9-hhE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9MS-D1-Ytg"/>
                 <constraint firstAttribute="bottom" secondItem="zOA-a9-hhE" secondAttribute="bottom" id="M5m-G1-6UJ"/>
+                <constraint firstAttribute="trailing" secondItem="hz7-AX-Wgp" secondAttribute="trailing" id="Wi6-1t-MLW"/>
                 <constraint firstAttribute="trailing" secondItem="zOA-a9-hhE" secondAttribute="trailing" id="r0z-kn-aqZ"/>
+                <constraint firstAttribute="bottom" secondItem="hz7-AX-Wgp" secondAttribute="bottom" id="uq5-MA-3Qq"/>
                 <constraint firstItem="zOA-a9-hhE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zj0-Bm-og3"/>
             </constraints>
             <connections>
+                <outlet property="backColor" destination="hz7-AX-Wgp" id="dLb-Vc-xXg"/>
                 <outlet property="categoryName" destination="zOA-a9-hhE" id="CvJ-pM-owC"/>
             </connections>
             <point key="canvasLocation" x="70" y="-12"/>

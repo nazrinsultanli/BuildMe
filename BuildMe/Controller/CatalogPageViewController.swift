@@ -10,22 +10,22 @@ import UIKit
 class CatalogPageViewController: UIViewController {
     @IBOutlet weak var tableViewm: UITableView!
     
-
-    
-    
+    var viewModel = CatalogPageViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Catalog"
+        setTableView()
+    }
+    
+    func setTableView(){
         tableViewm.delegate = self
         tableViewm.dataSource = self
-        
 
         tableViewm.register(UINib(nibName: "\(CatalogCategoryTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "CatalogCategoryTableViewCell")
-        
         tableViewm.register(UINib(nibName: "\(CatalogProductTableCell.self)", bundle: nil), forCellReuseIdentifier: "CatalogProductTableCell")
-        
-        
     }
+    
+    
 }
 
 
@@ -53,12 +53,12 @@ extension CatalogPageViewController: UITableViewDelegate, UITableViewDataSource 
         switch (indexPath.section ) {
         case 0:
             let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(CatalogCategoryTableViewCell.self)", for: indexPath) as! CatalogCategoryTableViewCell
-            //        cell.setUpHeader(title: "aa", image: "plus")
+            cell.viewModel.categoryData = viewModel.categoryData
             return cell
             
         case 1:
             let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(CatalogProductTableCell.self)", for: indexPath) as! CatalogProductTableCell
-            //        cell.setUpHeader(title: "aa", image: "plus")
+            cell.viewModel.filteredProduct = viewModel.filteredData()
             return cell
         default:
             return UITableViewCell()

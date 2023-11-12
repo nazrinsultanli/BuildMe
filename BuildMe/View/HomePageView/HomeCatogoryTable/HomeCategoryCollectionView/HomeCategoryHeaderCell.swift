@@ -27,9 +27,5 @@ class HomeCategoryHeaderCell: UICollectionViewCell {
         categoryImage.layer.cornerRadius = 15
         categoryImage.layer.borderWidth = 1
         categoryImage.layer.borderColor = UIColor.clear.cgColor
-        
-      
-        
-        
     }
 }
