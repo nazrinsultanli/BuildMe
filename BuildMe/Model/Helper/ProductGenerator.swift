@@ -8,9 +8,7 @@
 import Foundation
 import RealmSwift
 class ProductGenerator{
-    
     let myRealm = try! Realm()
-    
     var productData = [Product(categoryType: .laminate,
                                brandName: .swiss,
                                modelName: .swiss1,
@@ -35,21 +33,8 @@ class ProductGenerator{
                                imageName: "image2",
                                definition: "asa sas sas as sa sa s",
                                featured: true,
-                               discounted: false,
-                               new: true),
-                       Product(categoryType: .asmaTavan,
-                               brandName: .tavan,
-                               modelName: .tavan1,
-                               modelCode: "212212",
-                               price: 20,
-                               quantity: 10,
-                               stock: true,
-                               rating: 3,
-                               imageName: "image3",
-                               definition: "asa sas sas as sa sa s",
-                               featured: false,
                                discounted: true,
-                               new: false),
+                               new: true),
                        Product(categoryType: .laminate,
                                brandName: .krono,
                                modelName: .krono1,
@@ -58,7 +43,7 @@ class ProductGenerator{
                                quantity: 10,
                                stock: true,
                                rating: 5,
-                               imageName: "image4",
+                               imageName: "image3",
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
@@ -71,11 +56,24 @@ class ProductGenerator{
                                quantity: 10,
                                stock: true,
                                rating: 5,
-                               imageName: "image5",
+                               imageName: "image4",
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
                                new: true),
+                       Product(categoryType: .asmaTavan,
+                               brandName: .tavan,
+                               modelName: .tavan1,
+                               modelCode: "212212",
+                               price: 20,
+                               quantity: 10,
+                               stock: true,
+                               rating: 3,
+                               imageName: "image5",
+                               definition: "asa sas sas as sa sa s",
+                               featured: false,
+                               discounted: true,
+                               new: false),
                        Product(categoryType: .asmaTavan,
                                brandName: .tavan,
                                modelName: .tavan2,
@@ -87,7 +85,7 @@ class ProductGenerator{
                                imageName: "image6",
                                definition: "asa sas sas as sa sa s",
                                featured: true,
-                               discounted: false,
+                               discounted: true,
                                new: true),
                        Product(categoryType: .kafel,
                                brandName: .kafell,
@@ -97,7 +95,7 @@ class ProductGenerator{
                                quantity: 10,
                                stock: true,
                                rating: 5,
-                               imageName: "image1",
+                               imageName: "image7",
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
@@ -110,7 +108,7 @@ class ProductGenerator{
                                quantity: 10,
                                stock: true,
                                rating: 5,
-                               imageName: "image1",
+                               imageName: "image8",
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
@@ -123,7 +121,7 @@ class ProductGenerator{
                                quantity: 10,
                                stock: true,
                                rating: 5,
-                               imageName: "image1",
+                               imageName: "image9",
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
@@ -136,7 +134,7 @@ class ProductGenerator{
                                quantity: 10,
                                stock: true,
                                rating: 5,
-                               imageName: "image1",
+                               imageName: "image10",
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
@@ -165,7 +163,7 @@ class ProductGenerator{
                                imageName: "image1",
                                definition: "asa sas sas as sa sa s",
                                featured: true,
-                               discounted: false,
+                               discounted: true,
                                new: true),
     ]
     
@@ -187,5 +185,6 @@ class ProductGenerator{
         productData.append(contentsOf: data)
         
     }
+    
     
 }

@@ -8,13 +8,17 @@
 import UIKit
 
 class HomeCategoryTableViewCell: UITableViewCell {
-
     
     @IBOutlet weak var collectionViewm: UICollectionView!
     
+    var viewModel = HomeCategoryTableViewModel()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setCollectionView()
+        
+    }
+    func setCollectionView(){
         collectionViewm.dataSource = self
         collectionViewm.delegate = self
         
@@ -26,12 +30,14 @@ class HomeCategoryTableViewCell: UITableViewCell {
 
 extension HomeCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        print(viewModel.categoryData.count)
+        return viewModel.categoryData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionViewm.dequeueReusableCell(withReuseIdentifier: "\(HomeCategoryHeaderCell.self)", for: indexPath) as! HomeCategoryHeaderCell
-//        cell.setUpHeader(title: "aa", image: "plus")
+        print("home")
+        cell.setHomeCategoryData(category: viewModel.categoryData[indexPath.item])
         return cell
     }
     

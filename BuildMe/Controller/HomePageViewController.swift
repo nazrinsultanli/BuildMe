@@ -8,32 +8,27 @@
 import UIKit
 
 class HomePageViewController: UIViewController {
-
     
     @IBOutlet weak var tableViewm: UITableView!
+    
+    var viewModel = HomePageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "BuildMe"
+        
+        setTableRegister()
+        
+    }
+    
+    func setTableRegister () {
         tableViewm.delegate = self
         tableViewm.dataSource =  self
         
         tableViewm.register(UINib(nibName: "\(HomeProductTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "HomeProductTableViewCell")
         
         tableViewm.register(UINib(nibName: "\(HomeCategoryTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "HomeCategoryTableViewCell")
-        
-        configure()
-
     }
-    
-
-    
-    func configure () {
-
-    }
-
-
-
 }
 
 extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
@@ -66,25 +61,24 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
         switch (indexPath.section ) {
         case 0:
             let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(HomeCategoryTableViewCell.self)", for: indexPath) as! HomeCategoryTableViewCell
-            //        cell.setUpHeader(title: "aa", image: "plus")
+            cell.viewModel.categoryData = viewModel.categoryData
             return cell
             
         case 1:
             let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(HomeProductTableViewCell.self)", for: indexPath) as! HomeProductTableViewCell
-            //        cell.setUpHeader(title: "aa", image: "plus")
+            cell.viewModel.filteredProducts = viewModel.newProduct()
             return cell
         case 2:
             let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(HomeProductTableViewCell.self)", for: indexPath) as! HomeProductTableViewCell
-            //        cell.setUpHeader(title: "aa", image: "plus")
+            cell.viewModel.filteredProducts = viewModel.discountedProduct()
             return cell
         case 3:
             let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(HomeProductTableViewCell.self)", for: indexPath) as! HomeProductTableViewCell
-            //        cell.setUpHeader(title: "aa", image: "plus")
+            cell.viewModel.filteredProducts = viewModel.featuredProduct()
             return cell
         default:
             return UITableViewCell()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -96,8 +90,6 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
             return 200
         }
     }
-    
-    
 }
     
     

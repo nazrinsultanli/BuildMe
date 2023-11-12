@@ -14,12 +14,22 @@ class HomeCategoryHeaderCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setView()
     }
     
-//    func setUpHeader(title:String, image:String){
-//        categoryLabel.text = "aaa"
-//        categoryImage.image  = UIImage(named: image)
-//    }
+    func setHomeCategoryData(category: Categories){
+        self.categoryLabel.text = category.categoryType?.rawValue
+        self.categoryImage.image  = UIImage(named: category.imageName)
+    }
 
+    
+    func setView(){
+        categoryImage.layer.cornerRadius = 15
+        categoryImage.layer.borderWidth = 1
+        categoryImage.layer.borderColor = UIColor.clear.cgColor
+        
+      
+        
+        
+    }
 }

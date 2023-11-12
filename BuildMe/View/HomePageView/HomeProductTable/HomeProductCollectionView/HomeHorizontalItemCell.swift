@@ -8,7 +8,8 @@
 import UIKit
 
 class HomeHorizontalItemCell: UICollectionViewCell {
-
+    @IBOutlet weak var backViewColor: UIView!
+    
     @IBOutlet weak var stars: UIImageView!
     @IBOutlet weak var modelName: UILabel!
     @IBOutlet weak var brandName: UILabel!
@@ -16,7 +17,25 @@ class HomeHorizontalItemCell: UICollectionViewCell {
     @IBOutlet weak var savedBookmark: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setView()
+    }
+    
+    func setHomeProductData (product: Product){
+        savedBookmark.isHidden = true
+        self.modelName.text = product.modelName?.rawValue
+        self.brandName.text = product.brandName?.rawValue
+        self.imageView.image = UIImage(named: product.imageName)
     }
 
+    func setView(){
+        imageView.layer.cornerRadius = 15
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.clear.cgColor
+        
+        backViewColor.layer.cornerRadius = 15
+        backViewColor.layer.borderWidth = 1
+        backViewColor.layer.borderColor = UIColor.clear.cgColor
+        
+        
+    }
 }

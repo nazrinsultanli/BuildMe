@@ -88,3 +88,4 @@ enum ModelProduct: String, CaseIterable, PersistableEnum {
     case kafell1 = "KA0001"
     case kafell2 = "KA0002"
 }
+
