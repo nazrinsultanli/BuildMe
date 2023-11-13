@@ -18,6 +18,7 @@ class ProfilePageViewController: UIViewController {
     @IBOutlet weak var profileICon: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Profile"
         nonSigned()
 
       

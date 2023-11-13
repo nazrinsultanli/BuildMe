@@ -23,6 +23,10 @@
 		10353BB22AFF828F00286BB2 /* HomeProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353BB02AFF828F00286BB2 /* HomeProductTableViewCell.swift */; };
 		10353BB32AFF828F00286BB2 /* HomeProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10353BB12AFF828F00286BB2 /* HomeProductTableViewCell.xib */; };
 		104BFD9C2B025A0B000667AE /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104BFD9B2B025A0B000667AE /* ProfilePageViewController.swift */; };
+		104BFD9E2B0285F7000667AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104BFD9D2B0285F7000667AE /* User.swift */; };
+		104BFDA02B028711000667AE /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104BFD9F2B028711000667AE /* UserHelper.swift */; };
+		104BFDA22B028A94000667AE /* LoginPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104BFDA12B028A94000667AE /* LoginPageViewModel.swift */; };
+		104BFDA42B02904A000667AE /* RegisterPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104BFDA32B02904A000667AE /* RegisterPageViewModel.swift */; };
 		1057A1FB2AFFA899003F3C2D /* CatalogCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1057A1F92AFFA899003F3C2D /* CatalogCategoryTableViewCell.swift */; };
 		1057A1FC2AFFA899003F3C2D /* CatalogCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1057A1FA2AFFA899003F3C2D /* CatalogCategoryTableViewCell.xib */; };
 		1057A2002AFFA99D003F3C2D /* CatalogTypesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1057A1FE2AFFA99D003F3C2D /* CatalogTypesCollectionViewCell.swift */; };
@@ -72,6 +76,10 @@
 		10353BB02AFF828F00286BB2 /* HomeProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProductTableViewCell.swift; sourceTree = "<group>"; };
 		10353BB12AFF828F00286BB2 /* HomeProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeProductTableViewCell.xib; sourceTree = "<group>"; };
 		104BFD9B2B025A0B000667AE /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
+		104BFD9D2B0285F7000667AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		104BFD9F2B028711000667AE /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
+		104BFDA12B028A94000667AE /* LoginPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewModel.swift; sourceTree = "<group>"; };
+		104BFDA32B02904A000667AE /* RegisterPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageViewModel.swift; sourceTree = "<group>"; };
 		1057A1F92AFFA899003F3C2D /* CatalogCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		1057A1FA2AFFA899003F3C2D /* CatalogCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		1057A1FE2AFFA99D003F3C2D /* CatalogTypesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTypesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +148,7 @@
 			children = (
 				1017DB772AFEAF3000B24285 /* ProductGenerator.swift */,
 				108FCDFC2B0137E000516822 /* CategoryHelper.swift */,
+				104BFD9F2B028711000667AE /* UserHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -308,6 +317,8 @@
 			children = (
 				108FCE012B01554E00516822 /* CatalogPage */,
 				108FCE002B01554300516822 /* HomePage */,
+				104BFDA12B028A94000667AE /* LoginPageViewModel.swift */,
+				104BFDA32B02904A000667AE /* RegisterPageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -333,6 +344,7 @@
 				1017DB792AFEAF4100B24285 /* Helper */,
 				1017DB752AFEAD4800B24285 /* Product.swift */,
 				108FCDFA2B01378800516822 /* Categories.swift */,
+				104BFD9D2B0285F7000667AE /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -429,12 +441,14 @@
 				108FCDF92B0133EB00516822 /* HomeProductTableViewModel.swift in Sources */,
 				1017DB852AFED4CB00B24285 /* ProductPageController.swift in Sources */,
 				108305EE2AFD30D8007D48A9 /* HomeCategoryHeaderCell.swift in Sources */,
+				104BFD9E2B0285F7000667AE /* User.swift in Sources */,
 				108FCE052B015A0D00516822 /* CatalogProductViewModel.swift in Sources */,
 				1017DB892AFED5DA00B24285 /* BasketTableCell.swift in Sources */,
 				1017DB712AFEA19700B24285 /* HomeHorizontalItemCell.swift in Sources */,
 				1057A2042AFFAA55003F3C2D /* CatalogProductTableCell.swift in Sources */,
 				10353BAD2AFF7F0D00286BB2 /* RegisterPageViewController.swift in Sources */,
 				108FCDFD2B0137E000516822 /* CategoryHelper.swift in Sources */,
+				104BFDA02B028711000667AE /* UserHelper.swift in Sources */,
 				10C754AC2AF6997A004ED063 /* FavoritePageViewController.swift in Sources */,
 				10C754A82AF69902004ED063 /* HomePageViewController.swift in Sources */,
 				1017DB782AFEAF3000B24285 /* ProductGenerator.swift in Sources */,
@@ -446,6 +460,7 @@
 				1017DB7B2AFEB5AF00B24285 /* LoginPageViewController.swift in Sources */,
 				108FCE032B01556200516822 /* CatalogPageViewModel.swift in Sources */,
 				1017DB762AFEAD4800B24285 /* Product.swift in Sources */,
+				104BFDA22B028A94000667AE /* LoginPageViewModel.swift in Sources */,
 				108FCDFB2B01378800516822 /* Categories.swift in Sources */,
 				10C754862AF69513004ED063 /* AppDelegate.swift in Sources */,
 				10C754902AF69513004ED063 /* BuildMe.xcdatamodeld in Sources */,
@@ -454,6 +469,7 @@
 				104BFD9C2B025A0B000667AE /* ProfilePageViewController.swift in Sources */,
 				10C754AA2AF6995A004ED063 /* CatalogPageViewController.swift in Sources */,
 				10353BB22AFF828F00286BB2 /* HomeProductTableViewCell.swift in Sources */,
+				104BFDA42B02904A000667AE /* RegisterPageViewModel.swift in Sources */,
 				1057A2092AFFAB52003F3C2D /* CategoryProductCollectionViewCell.swift in Sources */,
 				10C754882AF69513004ED063 /* SceneDelegate.swift in Sources */,
 			);

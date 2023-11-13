@@ -8,13 +8,18 @@
 import UIKit
 
 class LoginPageViewController: UIViewController {
-
+    @IBOutlet weak var wrongPasswordLabel: UILabel!
+    
     @IBOutlet weak var buttonView: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
+    var viewModel = LoginPageViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Login"
+        wrongPasswordLabel.isHidden = true
         
 //        UserDefaults.standard.setValue(true, forKey: "LoggedIn")
         
@@ -44,29 +49,50 @@ class LoginPageViewController: UIViewController {
         }
     
     @IBAction func logInClicked(_ sender: Any) {
-    }
-    
-    
-//    
-//    
-//    @IBAction func logInClicked(_ sender: Any) {
-//        let homeController = storyboard?.instantiateViewController(identifier: "tabBar") as! UITabBarController
-//        
-//        if emailTextField.text == "1"  && passwordTextField.text == "1"{
+//        UserDefaults.standard.setValue(true, forKey: "LoggedIn")
+//        UserDefaults.standard.setValue(emailTextField.text, forKey: "savedEmail")
+        if viewModel.userData.contains(where: {$0.email == emailTextField.text && $0.password == passwordTextField.text}){
+            
+            let controller = storyboard?.instantiateViewController(identifier: "HomePageViewController") as! HomePageViewController
+            navigationController?.show(controller, sender: nil)
 //            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
 //               let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
 //                sceneDelegate.setMainRootViewController(windowScene: windowScene)
 //            }
-//        }
-//        
-//        navigationController?.show(homeController, sender: nil)
-//    }
-    
-
-    
-    @IBAction func registerButtonClicked(_ sender: Any) {
-        let controller = storyboard?.instantiateViewController(identifier: "RegisterPageViewController") as! RegisterPageViewController
-        navigationController?.show(controller, sender: nil)
+        }
+        else{
+            wrongPasswordLabel.isHidden = false
+        }
     }
     
+    
+    @IBAction func registerButtonClicked(_ sender: Any) {
+        
+        let registerPage = storyboard?.instantiateViewController(withIdentifier: "RegisterPageViewController") as! RegisterPageViewController
+        
+        //--3--- burada cagirmaq
+        registerPage.registerButtonClickedCallBackLogin = { a, b in
+            self.emailTextField?.text = a
+            self.passwordTextField?.text = b
+        }
+        navigationController?.show(registerPage, sender: nil)
+    }
+    
+}
+
+
+extension LoginPageViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //textField.resignFirstResponder() // tek ishletsen, hansi textfielde bassan acilirbaglanir
+        wrongPasswordLabel.isHidden = true
+        if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        }
+        else {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+
 }
