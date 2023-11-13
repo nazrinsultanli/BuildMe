@@ -9,11 +9,15 @@ import UIKit
 
 class RegisterPageViewController: UIViewController {
 
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var fullNameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+     
     }
+    
     
 
     /*

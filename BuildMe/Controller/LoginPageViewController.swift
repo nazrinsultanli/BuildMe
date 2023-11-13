@@ -24,8 +24,7 @@ class LoginPageViewController: UIViewController {
     }
     
     private func setupUI(){
-            self.view.backgroundColor = UIColor(patternImage: UIImage(named: "launchBackground")!)
-            
+
             emailTextField.layer.cornerRadius = 25
             emailTextField.layer.borderWidth = 1
             emailTextField.layer.borderColor = UIColor.white.cgColor
@@ -64,4 +63,10 @@ class LoginPageViewController: UIViewController {
 //    }
     
 
+    
+    @IBAction func registerButtonClicked(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(identifier: "RegisterPageViewController") as! RegisterPageViewController
+        navigationController?.show(controller, sender: nil)
+    }
+    
 }

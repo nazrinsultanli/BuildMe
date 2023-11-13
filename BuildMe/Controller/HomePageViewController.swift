@@ -29,6 +29,13 @@ class HomePageViewController: UIViewController {
         
         tableViewm.register(UINib(nibName: "\(HomeCategoryTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "HomeCategoryTableViewCell")
     }
+    
+    
+    @IBAction func profileButtonClicked(_ sender: Any) {
+        let controller = storyboard?.instantiateViewController(identifier: "ProfilePageViewController") as! ProfilePageViewController
+        navigationController?.show(controller, sender: nil)
+    }
+    
 }
 
 extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {

@@ -22,6 +22,7 @@
 		10353BAD2AFF7F0D00286BB2 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353BAC2AFF7F0D00286BB2 /* RegisterPageViewController.swift */; };
 		10353BB22AFF828F00286BB2 /* HomeProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353BB02AFF828F00286BB2 /* HomeProductTableViewCell.swift */; };
 		10353BB32AFF828F00286BB2 /* HomeProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10353BB12AFF828F00286BB2 /* HomeProductTableViewCell.xib */; };
+		104BFD9C2B025A0B000667AE /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104BFD9B2B025A0B000667AE /* ProfilePageViewController.swift */; };
 		1057A1FB2AFFA899003F3C2D /* CatalogCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1057A1F92AFFA899003F3C2D /* CatalogCategoryTableViewCell.swift */; };
 		1057A1FC2AFFA899003F3C2D /* CatalogCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1057A1FA2AFFA899003F3C2D /* CatalogCategoryTableViewCell.xib */; };
 		1057A2002AFFA99D003F3C2D /* CatalogTypesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1057A1FE2AFFA99D003F3C2D /* CatalogTypesCollectionViewCell.swift */; };
@@ -70,6 +71,7 @@
 		10353BAC2AFF7F0D00286BB2 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
 		10353BB02AFF828F00286BB2 /* HomeProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProductTableViewCell.swift; sourceTree = "<group>"; };
 		10353BB12AFF828F00286BB2 /* HomeProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeProductTableViewCell.xib; sourceTree = "<group>"; };
+		104BFD9B2B025A0B000667AE /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		1057A1F92AFFA899003F3C2D /* CatalogCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		1057A1FA2AFFA899003F3C2D /* CatalogCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		1057A1FE2AFFA99D003F3C2D /* CatalogTypesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogTypesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				1017DB7A2AFEB5AF00B24285 /* LoginPageViewController.swift */,
 				1017DB842AFED4CB00B24285 /* ProductPageController.swift */,
 				10353BAC2AFF7F0D00286BB2 /* RegisterPageViewController.swift */,
+				104BFD9B2B025A0B000667AE /* ProfilePageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				10C754902AF69513004ED063 /* BuildMe.xcdatamodeld in Sources */,
 				1017DB822AFEC6C200B24285 /* FavoriteTableCell.swift in Sources */,
 				10C754AE2AF699C7004ED063 /* BasketPageViewController.swift in Sources */,
+				104BFD9C2B025A0B000667AE /* ProfilePageViewController.swift in Sources */,
 				10C754AA2AF6995A004ED063 /* CatalogPageViewController.swift in Sources */,
 				10353BB22AFF828F00286BB2 /* HomeProductTableViewCell.swift in Sources */,
 				1057A2092AFFAB52003F3C2D /* CategoryProductCollectionViewCell.swift in Sources */,
