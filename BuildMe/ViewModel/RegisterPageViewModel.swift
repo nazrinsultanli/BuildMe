@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class RegisterPageViewModel{
-    var userData = UserHelper().userData
+    var userData = UserHelper().fetch()
     let myRealm = try! Realm()
     
     func saveItems(){

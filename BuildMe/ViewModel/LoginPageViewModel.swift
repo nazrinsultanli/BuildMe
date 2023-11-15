@@ -8,5 +8,5 @@
 import Foundation
 
 class LoginPageViewModel{
-    var userData = UserHelper().userData
+    var userData = UserHelper().fetch()
 }

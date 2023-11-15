@@ -20,7 +20,7 @@ class HomeProductTableViewCell: UITableViewCell {
     }
     
     func setCollectionView(){
-        collectionViewm.dataSource = self
+        collectionViewm.delegate = self
         collectionViewm.dataSource = self
         
         let nib = UINib(nibName: "\(HomeHorizontalItemCell.self)", bundle: nil)
@@ -44,5 +44,10 @@ extension HomeProductTableViewCell: UICollectionViewDelegate, UICollectionViewDa
     }
     
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let selectedProduct = viewModel.filteredProducts[indexPath.item]
+            NotificationCenter.default.post(name: Notification.Name("ProductSelectedFromHome"), object: selectedProduct)
+        }
     
 }

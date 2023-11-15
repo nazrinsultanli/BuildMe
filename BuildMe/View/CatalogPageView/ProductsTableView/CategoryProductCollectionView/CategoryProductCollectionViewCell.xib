@@ -23,29 +23,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f2F-yf-3UB">
-                        <rect key="frame" x="20" y="20" width="140" height="80"/>
+                        <rect key="frame" x="20" y="20" width="140" height="79.666666666666671"/>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZrA-nS-dDs">
-                        <rect key="frame" x="20" y="150" width="140" height="20"/>
+                        <rect key="frame" x="20" y="149.66666666666666" width="140" height="20.333333333333343"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="85 $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMc-XR-mbG">
-                                <rect key="frame" x="0.0" y="0.0" width="120" height="20"/>
+                                <rect key="frame" x="0.0" y="0.0" width="140" height="20.333333333333332"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="mainC"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basket.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QNg-4x-yGO">
-                                <rect key="frame" x="120" y="-3.5527136788005009e-15" width="20" height="19.666666666666671"/>
-                                <color key="tintColor" name="mainC"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="GwQ-UD-QIa"/>
-                                    <constraint firstAttribute="width" constant="20" id="fEu-ab-fXB"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ps5-2S-r2h">
-                        <rect key="frame" x="20" y="120" width="140" height="20"/>
+                        <rect key="frame" x="20" y="119.66666666666669" width="140" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="FbF-Xh-xkp"/>
                         </constraints>
@@ -83,7 +75,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="basket.fill" catalog="system" width="128" height="108"/>
         <namedColor name="backgroundC">
             <color red="0.95300000905990601" green="0.9570000171661377" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -14,7 +14,8 @@ class RegisterPageViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var fullNameTextField: UITextField!
     
-    var viewModel = RegisterPageViewModel()
+//    var viewModel = RegisterPageViewModel()
+    var userStorage = UserHelper()
     
     //--1--
     var registerButtonClickedCallBackLogin: ((String, String) -> Void)?
@@ -33,15 +34,16 @@ class RegisterPageViewController: UIViewController {
         let enteredPassword = passwordTextField.text ?? ""
         
         
-        if viewModel.userData.contains(where: {$0.email == emailTextField.text}){
+        if userStorage.fetch().contains(where: {$0.email == emailTextField.text}){
             emailError.isHidden = true
         }
         else{
             let newUser = User(fullName: enteredFullName, 
                                email: enteredEmail, 
                                password: enteredPassword)
-            viewModel.userData.append(newUser)
-            viewModel.saveItems()
+//            viewModel.userData.append(newUser)
+//            viewModel.saveItems()
+            userStorage.saveItems(userData: newUser)
         }
         
         

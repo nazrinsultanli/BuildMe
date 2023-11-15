@@ -43,13 +43,22 @@ extension CatalogCategoryTableViewCell: UICollectionViewDelegate, UICollectionVi
         .init(width: 120, height: 50)
     }
     
+    /*
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let catalogPageViewController = storyboard.instantiateViewController(withIdentifier: "CatalogPageViewController") as! CatalogPageViewController
+     
         catalogPageViewController.viewModel.selectedCategoryType = viewModel.categoryData[indexPath.item].categoryType
+     
         self.window?.rootViewController?.show(catalogPageViewController, sender: nil)
         
     }
+    */
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let selectedCategory = viewModel.categoryData[indexPath.item].categoryType
+            NotificationCenter.default.post(name: Notification.Name("SelectedCategoryfromCatalog"), object: selectedCategory)
+        }
     
 }
 

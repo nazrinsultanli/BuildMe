@@ -18,8 +18,45 @@ class HomePageViewController: UIViewController {
         title = "BuildMe"
         
         setTableRegister()
+
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(categorySelected(_:)), name: Notification.Name("CategorySelected"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(productSelected(_:)), name: Notification.Name("ProductSelectedFromHome"), object: nil)
         
     }
+    
+@objc func productSelected(_ notification: Notification) {
+        if let selectedProduct = notification.object as? Product {
+            // Navigate to the ProductPageController and pass the selected product
+            let productPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductPageController") as! ProductPageController
+            productPageVC.product = selectedProduct
+            navigationController?.pushViewController(productPageVC, animated: true)
+        }
+    }
+
+    
+    @objc func categorySelected(_ notification: Notification) {
+        if let selectedCategory = notification.object as? CategoryProduct{
+                let catalogageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CatalogPageViewController") as! CatalogPageViewController
+                
+                catalogageVC.viewModel.selectedCategoryType = selectedCategory
+                navigationController?.pushViewController(catalogageVC, animated: true)
+            //tabBarController?.selectedIndex = 1
+            
+            
+            }
+        }
+    
+
+        deinit {
+            // Remove the observer to avoid memory leaks
+            NotificationCenter.default.removeObserver(self, name: Notification.Name("CategorySelected"), object: nil)
+            
+            NotificationCenter.default.removeObserver(self, name: Notification.Name("ProductSelected"), object: nil)
+        }
+    
+    
     
     func setTableRegister () {
         tableViewm.delegate = self
@@ -69,6 +106,8 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(HomeCategoryTableViewCell.self)", for: indexPath) as! HomeCategoryTableViewCell
             cell.viewModel.categoryData = viewModel.categoryData
+            
+            //cell.delegate = self
             return cell
             
         case 1:
@@ -98,16 +137,4 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
+ 

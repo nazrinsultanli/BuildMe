@@ -10,22 +10,31 @@ import RealmSwift
 class UserHelper {
     let myRealm = try! Realm()
     
-    var userData = [User(fullName: "naz 1 naz", email: "1", password: "1")]
     
-    func saveItems(){
+    func saveItems(userData: User){
         do{
             try myRealm.write{
                 myRealm.add(userData)
-                fetch()
             }
         } catch{
             print(error.localizedDescription)
         }
     }
     
-    func fetch(){
-        let data = myRealm.objects(User.self)
-        userData.removeAll()
-        userData.append(contentsOf: data)
+    func fetch()->[User]{
+        
+        do{
+            let data = myRealm.objects(User.self)
+            return Array(data)
+        } catch {
+            print(error.localizedDescription)
+            return []
+        }
+    }
+    
+    func getPath(){
+        if let url = myRealm.configuration.fileURL{
+            print("Realm File Path:\(url)")
+        }
     }
 }

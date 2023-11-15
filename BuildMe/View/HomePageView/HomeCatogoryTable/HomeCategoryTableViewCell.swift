@@ -7,11 +7,16 @@
 
 import UIKit
 
+//protocol HomeCategoryDelegate{
+//    func categorySelected(selectedCategory: CategoryProduct)
+//}
+
 class HomeCategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionViewm: UICollectionView!
     
     var viewModel = HomeCategoryTableViewModel()
+   // var delegate: HomeCategoryDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,12 +48,11 @@ extension HomeCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewD
         .init(width: 80, height: 80)
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let catalogPageViewController = storyboard.instantiateViewController(withIdentifier: "CatalogPageViewController") as! CatalogPageViewController
-        catalogPageViewController.viewModel.selectedCategoryType = viewModel.categoryData[indexPath.item].categoryType
-        self.window?.rootViewController?.show(catalogPageViewController, sender: nil)
-    }
-
+            let selectedCategory = viewModel.categoryData[indexPath.item].categoryType
+            NotificationCenter.default.post(name: Notification.Name("CategorySelected"), object: selectedCategory)
+        }
 }
 

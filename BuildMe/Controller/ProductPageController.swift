@@ -8,22 +8,48 @@
 import UIKit
 
 class ProductPageController: UIViewController {
-
+    @IBOutlet weak var totalPrice: UILabel!
+    
+    @IBOutlet weak var inStock: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var modelName: UILabel!
+    
+    @IBOutlet weak var favoriteButtonn: UIButton!
+    @IBOutlet weak var definitionLabel: UILabel!
+    @IBOutlet weak var productImage: UIImageView!
+    
+    var product: Product!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let product = product{
+            setProduct(product: product)
+        } else {
+            print("Error: Product is nil")
+        }
+        
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setProduct(product:Product){
+        if (!product.stock){
+            inStock.textColor = .red
+            inStock.text = "not available"
+        }
+        modelName?.text = product.modelName?.rawValue
+        priceLabel?.text = "\(product.price) AZN"
+        productImage?.image = UIImage(named: product.imageName)
+        definitionLabel?.text = product.definition
+        
     }
-    */
-
+    
+    @IBAction func favoriteButtonClicked(_ sender: Any) {
+    }
+    
+    
+    @IBAction func addToCartClicked(_ sender: Any) {
+    }
+    
 }
+
+

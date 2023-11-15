@@ -10,7 +10,7 @@ import UIKit
 class CatalogProductTableCell: UITableViewCell {
     @IBOutlet weak var collectionViem: UICollectionView!
     
-    var viewModel = CatalogPageViewModel()
+    var viewModel = CatalogProductViewModel()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,7 +18,7 @@ class CatalogProductTableCell: UITableViewCell {
         }
     
     func setCollectionView(){
-        collectionViem.dataSource = self
+        collectionViem.delegate = self
         collectionViem.dataSource = self
         
         let nib = UINib(nibName: "\(CategoryProductCollectionViewCell.self)", bundle: nil)
@@ -31,12 +31,12 @@ class CatalogProductTableCell: UITableViewCell {
 
 extension CatalogProductTableCell: UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.filteredProduct.count
+        viewModel.filteredProducts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryProductCollectionViewCell", for: indexPath) as! CategoryProductCollectionViewCell
-        cell.setCatalogProduct(product: viewModel.filteredProduct[indexPath.item])
+        cell.setCatalogProduct(product: viewModel.filteredProducts[indexPath.item])
         return cell
     }
     
@@ -44,6 +44,11 @@ extension CatalogProductTableCell: UICollectionViewDelegate, UICollectionViewDat
         CGSize(width: 180, height: 180)
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let selectedProduct = viewModel.filteredProducts[indexPath.item]
+            NotificationCenter.default.post(name: Notification.Name("ProductSelected"), object: selectedProduct)
+        }
     
 }
+
+

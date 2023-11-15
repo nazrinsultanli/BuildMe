@@ -162,22 +162,29 @@
 			path = CatalogPageView;
 			sourceTree = "<group>";
 		};
-		1017DB7F2AFEC69D00B24285 /* FavoriteTableView */ = {
+		1017DB7F2AFEC69D00B24285 /* FavoritePageView */ = {
 			isa = PBXGroup;
 			children = (
 				1017DB802AFEC6C200B24285 /* FavoriteTableCell.swift */,
 				1017DB812AFEC6C200B24285 /* FavoriteTableCell.xib */,
 			);
-			path = FavoriteTableView;
+			path = FavoritePageView;
 			sourceTree = "<group>";
 		};
-		1017DB862AFED5B200B24285 /* BasketTableView */ = {
+		1017DB862AFED5B200B24285 /* BasketPageView */ = {
 			isa = PBXGroup;
 			children = (
 				1017DB872AFED5DA00B24285 /* BasketTableCell.swift */,
 				1017DB882AFED5DA00B24285 /* BasketTableCell.xib */,
 			);
-			path = BasketTableView;
+			path = BasketPageView;
+			sourceTree = "<group>";
+		};
+		102FBCF52B054D5300785829 /* ProductPageView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProductPageView;
 			sourceTree = "<group>";
 		};
 		10353BA72AFF78BD00286BB2 /* HomePageView */ = {
@@ -250,10 +257,11 @@
 		108305E92AFD2AD0007D48A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				102FBCF52B054D5300785829 /* ProductPageView */,
 				10353BA72AFF78BD00286BB2 /* HomePageView */,
 				1017DB7C2AFEBBEE00B24285 /* CatalogPageView */,
-				1017DB862AFED5B200B24285 /* BasketTableView */,
-				1017DB7F2AFEC69D00B24285 /* FavoriteTableView */,
+				1017DB862AFED5B200B24285 /* BasketPageView */,
+				1017DB7F2AFEC69D00B24285 /* FavoritePageView */,
 			);
 			path = View;
 			sourceTree = "<group>";

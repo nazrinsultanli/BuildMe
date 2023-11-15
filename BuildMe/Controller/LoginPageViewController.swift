@@ -23,9 +23,14 @@ class LoginPageViewController: UIViewController {
         
 //        UserDefaults.standard.setValue(true, forKey: "LoggedIn")
         
-        
+        print(viewModel.userData)
         setupUI()
         
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+         viewModel = LoginPageViewModel()
     }
     
     private func setupUI(){
@@ -49,13 +54,14 @@ class LoginPageViewController: UIViewController {
         }
     
     @IBAction func logInClicked(_ sender: Any) {
-//        UserDefaults.standard.setValue(true, forKey: "LoggedIn")
-//        UserDefaults.standard.setValue(emailTextField.text, forKey: "savedEmail")
+        UserDefaults.standard.setValue(true, forKey: "LoggedIn")
+        UserDefaults.standard.setValue(emailTextField.text, forKey: "savedEmail")
+        
         if viewModel.userData.contains(where: {$0.email == emailTextField.text && $0.password == passwordTextField.text}){
             
             let controller = storyboard?.instantiateViewController(identifier: "HomePageViewController") as! HomePageViewController
             navigationController?.show(controller, sender: nil)
-//            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           // if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
 //               let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
 //                sceneDelegate.setMainRootViewController(windowScene: windowScene)
 //            }
