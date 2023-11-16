@@ -45,6 +45,8 @@
 		108FCE032B01556200516822 /* CatalogPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108FCE022B01556200516822 /* CatalogPageViewModel.swift */; };
 		108FCE052B015A0D00516822 /* CatalogProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108FCE042B015A0D00516822 /* CatalogProductViewModel.swift */; };
 		108FCE072B01634300516822 /* CatalogCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108FCE062B01634300516822 /* CatalogCategoryViewModel.swift */; };
+		10A456EB2B06765F007BA7A3 /* FavoriteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A456EA2B06765F007BA7A3 /* FavoriteHelper.swift */; };
+		10A456ED2B0676D0007BA7A3 /* FavoritePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A456EC2B0676D0007BA7A3 /* FavoritePageViewModel.swift */; };
 		10C754862AF69513004ED063 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C754852AF69513004ED063 /* AppDelegate.swift */; };
 		10C754882AF69513004ED063 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C754872AF69513004ED063 /* SceneDelegate.swift */; };
 		10C7548D2AF69513004ED063 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C7548B2AF69513004ED063 /* Main.storyboard */; };
@@ -98,6 +100,8 @@
 		108FCE022B01556200516822 /* CatalogPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogPageViewModel.swift; sourceTree = "<group>"; };
 		108FCE042B015A0D00516822 /* CatalogProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogProductViewModel.swift; sourceTree = "<group>"; };
 		108FCE062B01634300516822 /* CatalogCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCategoryViewModel.swift; sourceTree = "<group>"; };
+		10A456EA2B06765F007BA7A3 /* FavoriteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHelper.swift; sourceTree = "<group>"; };
+		10A456EC2B0676D0007BA7A3 /* FavoritePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePageViewModel.swift; sourceTree = "<group>"; };
 		10C754822AF69513004ED063 /* BuildMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C754852AF69513004ED063 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10C754872AF69513004ED063 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				1017DB772AFEAF3000B24285 /* ProductGenerator.swift */,
 				108FCDFC2B0137E000516822 /* CategoryHelper.swift */,
 				104BFD9F2B028711000667AE /* UserHelper.swift */,
+				10A456EA2B06765F007BA7A3 /* FavoriteHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 				108FCE002B01554300516822 /* HomePage */,
 				104BFDA12B028A94000667AE /* LoginPageViewModel.swift */,
 				104BFDA32B02904A000667AE /* RegisterPageViewModel.swift */,
+				10A456EC2B0676D0007BA7A3 /* FavoritePageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -448,6 +454,7 @@
 				108FCDFF2B0139F800516822 /* HomeCategoryTableViewModel.swift in Sources */,
 				108FCDF92B0133EB00516822 /* HomeProductTableViewModel.swift in Sources */,
 				1017DB852AFED4CB00B24285 /* ProductPageController.swift in Sources */,
+				10A456EB2B06765F007BA7A3 /* FavoriteHelper.swift in Sources */,
 				108305EE2AFD30D8007D48A9 /* HomeCategoryHeaderCell.swift in Sources */,
 				104BFD9E2B0285F7000667AE /* User.swift in Sources */,
 				108FCE052B015A0D00516822 /* CatalogProductViewModel.swift in Sources */,
@@ -467,6 +474,7 @@
 				108FCDF72B01269200516822 /* HomePageViewModel.swift in Sources */,
 				1017DB7B2AFEB5AF00B24285 /* LoginPageViewController.swift in Sources */,
 				108FCE032B01556200516822 /* CatalogPageViewModel.swift in Sources */,
+				10A456ED2B0676D0007BA7A3 /* FavoritePageViewModel.swift in Sources */,
 				1017DB762AFEAD4800B24285 /* Product.swift in Sources */,
 				104BFDA22B028A94000667AE /* LoginPageViewModel.swift in Sources */,
 				108FCDFB2B01378800516822 /* Categories.swift in Sources */,

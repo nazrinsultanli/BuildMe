@@ -7,11 +7,13 @@
 
 import UIKit
 
+
 class HomeProductTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionViewm: UICollectionView!
     
     var viewModel = HomeProductTableViewModel()
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,6 +50,9 @@ extension HomeProductTableViewCell: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let selectedProduct = viewModel.filteredProducts[indexPath.item]
             NotificationCenter.default.post(name: Notification.Name("ProductSelectedFromHome"), object: selectedProduct)
+       
+       
+        
         }
     
 }

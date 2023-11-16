@@ -19,16 +19,28 @@ class ProductPageController: UIViewController {
     @IBOutlet weak var productImage: UIImageView!
     
     var product: Product!
+    var addedToFavorite: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let product = product{
-            setProduct(product: product)
-        } else {
-            print("Error: Product is nil")
-        }
+        if let product = product {
+                setProduct(product: product)
+                updateUI()
+            } else {
+                print("Error: Product is nil")
+            }
+        print(ProductGenerator().productData)
         
+        ProductGenerator().getPath()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: Notification.Name("ProductDataUpdated"), object: nil)
+
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateUI()
     }
     
     func setProduct(product:Product){
@@ -44,12 +56,27 @@ class ProductPageController: UIViewController {
     }
     
     @IBAction func favoriteButtonClicked(_ sender: Any) {
+        
+        print("amna")
+        if let productToUpdate = product {
+            ProductGenerator().updateFavoriteProduct(productModelName: productToUpdate.modelName ?? .accesor1)
+            updateUI()
+            
+            
+        }}
+    
+    @objc func updateUI() {
+        // Update your UI based on the modified product
+        // For example, change the favorite button image, etc.
+        if let updatedProduct = ProductGenerator().productData.first(where: { $0.modelName == product.modelName }) {
+            product = updatedProduct
+            if product.favorited {
+                favoriteButtonn.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            } else {
+                favoriteButtonn.setImage(UIImage(systemName: "bookmark"), for: .normal)
+            }
+        }
     }
-    
-    
-    @IBAction func addToCartClicked(_ sender: Any) {
-    }
-    
 }
 
 

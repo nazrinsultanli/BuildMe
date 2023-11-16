@@ -21,6 +21,7 @@ class Product: Object{
     @Persisted var featured: Bool
     @Persisted var discounted: Bool
     @Persisted var new: Bool
+    @Persisted var favorited: Bool
     
     convenience init(categoryType: CategoryProduct?,
                      brandName: BrandProduct?,
@@ -34,7 +35,8 @@ class Product: Object{
                      definition: String, 
                      featured: Bool,
                      discounted: Bool,
-                     new: Bool) {
+                     new: Bool,
+                     favorited: Bool) {
         self.init()
         self.categoryType = categoryType
         self.brandName = brandName
@@ -49,6 +51,7 @@ class Product: Object{
         self.featured = featured
         self.discounted = discounted
         self.new = new
+        self.favorited = favorited
   
     }
 }

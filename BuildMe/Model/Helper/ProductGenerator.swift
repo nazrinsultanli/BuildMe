@@ -21,7 +21,8 @@ class ProductGenerator{
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
-                               new: true),
+                               new: true,
+                              favorited: false),
                        Product(categoryType: .laminate,
                                brandName: .swiss,
                                modelName: .swiss2,
@@ -34,7 +35,8 @@ class ProductGenerator{
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: true,
-                               new: true),
+                               new: true,
+                               favorited: false),
                        Product(categoryType: .laminate,
                                brandName: .krono,
                                modelName: .krono1,
@@ -47,7 +49,8 @@ class ProductGenerator{
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
-                               new: true),
+                               new: true,
+                               favorited: false),
                        Product(categoryType: .laminate,
                                brandName: .krono,
                                modelName: .krono2,
@@ -60,7 +63,8 @@ class ProductGenerator{
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
-                               new: true),
+                               new: true,
+                               favorited: false),
                        Product(categoryType: .asmaTavan,
                                brandName: .tavan,
                                modelName: .tavan1,
@@ -73,7 +77,8 @@ class ProductGenerator{
                                definition: "asa sas sas as sa sa s",
                                featured: false,
                                discounted: true,
-                               new: false),
+                               new: false,
+                               favorited: false),
                        Product(categoryType: .asmaTavan,
                                brandName: .tavan,
                                modelName: .tavan2,
@@ -86,7 +91,8 @@ class ProductGenerator{
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: true,
-                               new: true),
+                               new: true,
+                               favorited: false),
                        Product(categoryType: .kafel,
                                brandName: .kafell,
                                modelName: .kafell1,
@@ -99,7 +105,8 @@ class ProductGenerator{
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
-                               new: true),
+                               new: true,
+                               favorited: false),
                        Product(categoryType: .kafel,
                                brandName: .kafell,
                                modelName: .krono2,
@@ -112,7 +119,8 @@ class ProductGenerator{
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
-                               new: true),
+                               new: true,
+                               favorited: false),
                        Product(categoryType: .ceramics,
                                brandName: .ceramika,
                                modelName: .ceramika1,
@@ -125,7 +133,8 @@ class ProductGenerator{
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
-                               new: true),
+                               new: true,
+                               favorited: false),
                        Product(categoryType: .ceramics,
                                brandName: .ceramika,
                                modelName: .ceramika2,
@@ -138,7 +147,8 @@ class ProductGenerator{
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
-                               new: true),
+                               new: true,
+                               favorited: false),
                        Product(categoryType: .accesories,
                                brandName: .accesor,
                                modelName: .accesor1,
@@ -151,7 +161,8 @@ class ProductGenerator{
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: false,
-                               new: true),
+                               new: true,
+                               favorited: false),
                        Product(categoryType: .accesories,
                                brandName: .accesor,
                                modelName: .accesor2,
@@ -164,7 +175,8 @@ class ProductGenerator{
                                definition: "asa sas sas as sa sa s",
                                featured: true,
                                discounted: true,
-                               new: true),
+                               new: true,
+                               favorited: false)
     ]
     
     
@@ -186,5 +198,52 @@ class ProductGenerator{
         
     }
     
+    func getPath(){
+        if let url = myRealm.configuration.fileURL{
+            print("Realm File Path:\(url)")
+        }
+    }
+    
+    
+    
+//    func updateFavoriteProduct(productModelName: ModelProduct){
+//        if let index = productData.firstIndex(where: { $0.modelName == productModelName }) {
+//            productData[index].favorited.toggle()
+//        }
+//        do{
+//            try myRealm.write{
+//                myRealm.add(productData)
+//                fetch()
+//            }
+//        } catch{
+//            print(error.localizedDescription)
+//        }
+//    }
+    
+    
+    
+    func updateFavoriteProduct(productModelName: ModelProduct) {
+        if let index = productData.firstIndex(where: { $0.modelName == productModelName }) {
+            do {
+                try myRealm.write {
+                    productData[index].favorited.toggle()
+                }
+                // Update the UI after the write operation is completed
+                NotificationCenter.default.post(name: Notification.Name("ProductDataUpdated"), object: nil)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+//    func updateFavoritedStatus(product: Product) {
+//            do {
+//                let realm = try Realm()
+//                try realm.write {
+//                    product.favorited.toggle()
+//                }
+//            } catch {
+//                print("Error updating favorited status: \(error)")
+//            }
+//        }
     
 }

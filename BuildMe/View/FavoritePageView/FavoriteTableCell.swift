@@ -20,11 +20,11 @@ class FavoriteTableCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setFavTable(product:Product){
+        imageName.image = UIImage(named: product.imageName)
+        price.text = "\(product.price) AZN"
+        brandName.text = product.brandName?.rawValue
+        modelName.text = product.modelName?.rawValue
     }
     
 }

@@ -9,9 +9,17 @@ import UIKit
 
 class FavoritePageViewController: UIViewController {
 
+    var products = ProductGenerator().productData
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        setUpTableView()
+
+    }
+    
+    
+    func setUpTableView(){
         tableView.dataSource = self
         tableView.delegate = self
 
@@ -21,22 +29,20 @@ class FavoritePageViewController: UIViewController {
         tableView.isEditing = true
         
         tableView.reloadData()
-
     }
-    
 
 }
 
 
 extension FavoritePageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        products.filter({ $0.favorited == true }).count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableCell", for: indexPath) as! FavoriteTableCell
-
+        cell.setFavTable(product: products.filter({ $0.favorited == true })[indexPath.row])
 
         return cell
     }
