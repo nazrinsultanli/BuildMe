@@ -9,7 +9,7 @@ import UIKit
 
 class FavoritePageViewController: UIViewController {
 
-    var products = ProductGenerator().productData
+    var products = ProductGenerator().products
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         

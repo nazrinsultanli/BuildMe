@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 class ProductPageController: UIViewController {
-    let myRealm = try! Realm()
+
     @IBOutlet weak var totalPrice: UILabel!
     
     @IBOutlet weak var inStock: UILabel!
@@ -26,11 +26,7 @@ class ProductPageController: UIViewController {
     var favState: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let productsInRealm = myRealm.objects(Product.self)
-            print("Products in Realm: \(productsInRealm)")
-        
-        
+
        
         
         let product = ProductGenerator().getInfoById(id: receivedProductId)
@@ -41,13 +37,6 @@ class ProductPageController: UIViewController {
         }
         
         updateUI(receivedId: receivedProductId, favoriteButtonn: favoriteButtonn)
-        
-
-        
-        ProductGenerator().getPath()
-        
-        //        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: Notification.Name("ProductDataUpdated"), object: nil)
-        
         
     }
     override func viewWillAppear(_ animated: Bool) {

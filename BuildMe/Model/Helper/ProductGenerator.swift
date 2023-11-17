@@ -7,8 +7,10 @@
 
 import Foundation
 import RealmSwift
-class ProductGenerator{
-    let myRealm = try! Realm()
+class ProductGenerator: ObservableObject{
+    private(set) var localRealm: Realm?
+    @Published var products: [Product] = []
+   // let myRealm = try! Realm()
     var productData = [Product(idProduct: 1001,
                                categoryType: .laminate,
                                brandName: .swiss,
@@ -192,6 +194,41 @@ class ProductGenerator{
     ]
     
     
+    func openRealm() {
+        do {
+            let config = Realm.Configuration(schemaVersion: 1, migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion > 1 {
+                    // Do something, usually updating the schema's variables here
+                }
+            })
+
+            Realm.Configuration.defaultConfiguration = config
+
+            localRealm = try Realm()
+        } catch {
+            print("Error opening Realm", error)
+        }
+    }
+    
+    func getProduct() {
+        if let localRealm = localRealm {
+            let allProducts = localRealm.objects(Product.self)
+            
+            
+            allProducts.forEach { singleProduct in
+                products.append(singleProduct)
+            }
+        }
+    }
+    
+    init() {
+        openRealm()
+        getProduct()
+        saveItems()
+    }
+
+    
+    /*
     init(){
         func saveItems() {
             do{
@@ -207,27 +244,57 @@ class ProductGenerator{
         
     }
     
+    */
     
     
-    func fetch(){
-        let data = myRealm.objects(Product.self)
-        productData.removeAll()
-        productData.append(contentsOf: data)
-        
-    }
-    
-    func getPath(){
-        if let url = myRealm.configuration.fileURL{
-            print("Realm File Path:\(url)")
+    func saveItems() {
+        if let localRealm = localRealm {
+            do {
+                try localRealm.write {
+//                    for i in 0..<productData.count{
+//                        localRealm.add(productData[i])
+                    localRealm.add(productData)
+                   // }
+
+                    
+                    print("Added each product to Realm!")
+                }
+            } catch {
+                print("Error adding course to Realm", error)
+            }
         }
     }
- 
-
     
     
+    func updateFavoriteProduct(productId: Int, favStatus: Bool) {
+        let realm = try! Realm()
+        guard let product = realm.object(ofType: Product.self, forPrimaryKey: productId)
+        else{
+            print("product \(productId) not found" )
+            return
+        }
+        try! realm.write{
+            product.favorited = favStatus
+            print("product \(productId) updated" )
+        }
+    }
     
+    
+//    func fetch(){
+//        let data = myRealm.objects(Product.self)
+//        productData.removeAll()
+//        productData.append(contentsOf: data)
+//        
+//    }
+//    
+//    func getPath(){
+//        if let url = myRealm.configuration.fileURL{
+//            print("Realm File Path:\(url)")
+//        }
+//    }
+//  
     func getInfoById(id: Int) -> Product? {
-        let pro = productData.filter{$0.idProduct == id}.first
+        let pro = products.filter{$0.idProduct == id}.first
         return pro
         }
     
@@ -270,8 +337,10 @@ class ProductGenerator{
     }
      */
     
+    /*
+    
     func updateFavoriteProduct(productId: Int, favStatus: Bool) {
-        if let product = myRealm.object(ofType: Product.self, forPrimaryKey: productId) 
+        if let product = myRealm.object(ofType: Product.self, forPrimaryKey: productId)
             {
             print("inupdate---------------------")
             print(product)
@@ -280,7 +349,7 @@ class ProductGenerator{
             }
         }
     }
-
+*/
     
     
     
