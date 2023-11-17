@@ -30,7 +30,7 @@ class HomePageViewController: UIViewController {
         if let selectedProduct = notification.object as? Product {
             // Navigate to the ProductPageController and pass the selected product
             let productPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductPageController") as! ProductPageController
-            productPageVC.product = selectedProduct
+            productPageVC.receivedProductId = selectedProduct.idProduct
             navigationController?.pushViewController(productPageVC, animated: true)
         }
     }

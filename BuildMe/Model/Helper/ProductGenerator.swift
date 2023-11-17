@@ -9,7 +9,8 @@ import Foundation
 import RealmSwift
 class ProductGenerator{
     let myRealm = try! Realm()
-    var productData = [Product(categoryType: .laminate,
+    var productData = [Product(idProduct: 1001,
+                               categoryType: .laminate,
                                brandName: .swiss,
                                modelName: .swiss1,
                                modelCode: "121221",
@@ -23,7 +24,8 @@ class ProductGenerator{
                                discounted: false,
                                new: true,
                               favorited: false),
-                       Product(categoryType: .laminate,
+                       Product(idProduct: 1002,
+                               categoryType: .laminate,
                                brandName: .swiss,
                                modelName: .swiss2,
                                modelCode: "121221",
@@ -37,7 +39,8 @@ class ProductGenerator{
                                discounted: true,
                                new: true,
                                favorited: false),
-                       Product(categoryType: .laminate,
+                       Product(idProduct: 1003,
+                               categoryType: .laminate,
                                brandName: .krono,
                                modelName: .krono1,
                                modelCode: "121221",
@@ -51,7 +54,8 @@ class ProductGenerator{
                                discounted: false,
                                new: true,
                                favorited: false),
-                       Product(categoryType: .laminate,
+                       Product(idProduct: 1004,
+                               categoryType: .laminate,
                                brandName: .krono,
                                modelName: .krono2,
                                modelCode: "121221",
@@ -65,7 +69,8 @@ class ProductGenerator{
                                discounted: false,
                                new: true,
                                favorited: false),
-                       Product(categoryType: .asmaTavan,
+                       Product(idProduct: 1005,
+                               categoryType: .asmaTavan,
                                brandName: .tavan,
                                modelName: .tavan1,
                                modelCode: "212212",
@@ -79,7 +84,8 @@ class ProductGenerator{
                                discounted: true,
                                new: false,
                                favorited: false),
-                       Product(categoryType: .asmaTavan,
+                       Product(idProduct: 1006,
+                               categoryType: .asmaTavan,
                                brandName: .tavan,
                                modelName: .tavan2,
                                modelCode: "90909",
@@ -93,7 +99,8 @@ class ProductGenerator{
                                discounted: true,
                                new: true,
                                favorited: false),
-                       Product(categoryType: .kafel,
+                       Product(idProduct: 1007,
+                               categoryType: .kafel,
                                brandName: .kafell,
                                modelName: .kafell1,
                                modelCode: "121221",
@@ -107,7 +114,8 @@ class ProductGenerator{
                                discounted: false,
                                new: true,
                                favorited: false),
-                       Product(categoryType: .kafel,
+                       Product(idProduct: 1008,
+                               categoryType: .kafel,
                                brandName: .kafell,
                                modelName: .krono2,
                                modelCode: "121221",
@@ -121,7 +129,8 @@ class ProductGenerator{
                                discounted: false,
                                new: true,
                                favorited: false),
-                       Product(categoryType: .ceramics,
+                       Product(idProduct: 1009,
+                               categoryType: .ceramics,
                                brandName: .ceramika,
                                modelName: .ceramika1,
                                modelCode: "121221",
@@ -135,7 +144,8 @@ class ProductGenerator{
                                discounted: false,
                                new: true,
                                favorited: false),
-                       Product(categoryType: .ceramics,
+                       Product(idProduct: 1010,
+                               categoryType: .ceramics,
                                brandName: .ceramika,
                                modelName: .ceramika2,
                                modelCode: "121221",
@@ -149,7 +159,8 @@ class ProductGenerator{
                                discounted: false,
                                new: true,
                                favorited: false),
-                       Product(categoryType: .accesories,
+                       Product(idProduct: 1011,
+                               categoryType: .accesories,
                                brandName: .accesor,
                                modelName: .accesor1,
                                modelCode: "121221",
@@ -163,7 +174,8 @@ class ProductGenerator{
                                discounted: false,
                                new: true,
                                favorited: false),
-                       Product(categoryType: .accesories,
+                       Product(idProduct: 1012,
+                               categoryType: .accesories,
                                brandName: .accesor,
                                modelName: .accesor2,
                                modelCode: "121221",
@@ -180,16 +192,22 @@ class ProductGenerator{
     ]
     
     
-    func saveItems() {
-        do{
-            try myRealm.write{
-                myRealm.add(productData)
-                fetch()
+    init(){
+        func saveItems() {
+            do{
+                try myRealm.write{
+                    myRealm.add(productData)
+                    fetch()
+                }
+            } catch{
+                print(error.localizedDescription)
             }
-        } catch{
-            print(error.localizedDescription)
         }
+        
+        
     }
+    
+    
     
     func fetch(){
         let data = myRealm.objects(Product.self)
@@ -203,47 +221,67 @@ class ProductGenerator{
             print("Realm File Path:\(url)")
         }
     }
+ 
+
     
     
     
-//    func updateFavoriteProduct(productModelName: ModelProduct){
-//        if let index = productData.firstIndex(where: { $0.modelName == productModelName }) {
-//            productData[index].favorited.toggle()
-//        }
-//        do{
-//            try myRealm.write{
-//                myRealm.add(productData)
-//                fetch()
-//            }
-//        } catch{
-//            print(error.localizedDescription)
-//        }
-//    }
+    func getInfoById(id: Int) -> Product? {
+        let pro = productData.filter{$0.idProduct == id}.first
+        return pro
+        }
     
+
+    /*
+    func updateFavoriteProduct(productFromPage: Product, favStatus: Bool){
+        
+        let product = myRealm.objects(Product.self).filter {
+               $0.idProduct == productFromPage.idProduct
+           }.first
+        print("update--")
+        print(product)
+           try! myRealm.write {
+               
+               productFromPage.favorited = favStatus
+               print(product)
+               product?.favorited = productFromPage.favorited
+           }
+           
+       }
     
+    */
     
-    func updateFavoriteProduct(productModelName: ModelProduct) {
-        if let index = productData.firstIndex(where: { $0.modelName == productModelName }) {
-            do {
-                try myRealm.write {
-                    productData[index].favorited.toggle()
-                }
-                // Update the UI after the write operation is completed
-                NotificationCenter.default.post(name: Notification.Name("ProductDataUpdated"), object: nil)
-            } catch {
-                print(error.localizedDescription)
+    /*
+    func updateFavoriteProduct(productFromPage: Product, favStatus: Bool) {
+        
+        
+        guard let product = myRealm.object(ofType: Product.self, forPrimaryKey: productFromPage.idProduct) else {
+            print("Product not found in Realm.")
+            return
+        }
+
+        do {
+            try myRealm.write {
+                product.favorited = favStatus
+            }
+        } catch {
+            print("Error updating product in Realm: \(error.localizedDescription)")
+        }
+    }
+     */
+    
+    func updateFavoriteProduct(productId: Int, favStatus: Bool) {
+        if let product = myRealm.object(ofType: Product.self, forPrimaryKey: productId) 
+            {
+            print("inupdate---------------------")
+            print(product)
+            try! myRealm.write {
+                product.favorited = favStatus
             }
         }
     }
-//    func updateFavoritedStatus(product: Product) {
-//            do {
-//                let realm = try Realm()
-//                try realm.write {
-//                    product.favorited.toggle()
-//                }
-//            } catch {
-//                print("Error updating favorited status: \(error)")
-//            }
-//        }
+
+    
+    
     
 }

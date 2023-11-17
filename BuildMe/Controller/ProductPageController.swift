@@ -7,7 +7,10 @@
 
 import UIKit
 
+import RealmSwift
+
 class ProductPageController: UIViewController {
+    let myRealm = try! Realm()
     @IBOutlet weak var totalPrice: UILabel!
     
     @IBOutlet weak var inStock: UILabel!
@@ -18,29 +21,38 @@ class ProductPageController: UIViewController {
     @IBOutlet weak var definitionLabel: UILabel!
     @IBOutlet weak var productImage: UIImageView!
     
-    var product: Product!
-    var addedToFavorite: Bool = false
-    
+    var receivedProductId: Int = 0
+
+    var favState: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let productsInRealm = myRealm.objects(Product.self)
+            print("Products in Realm: \(productsInRealm)")
+        
+        
+       
+        
+        let product = ProductGenerator().getInfoById(id: receivedProductId)
         if let product = product {
-                setProduct(product: product)
-                updateUI()
-            } else {
-                print("Error: Product is nil")
-            }
-        print(ProductGenerator().productData)
+            setProduct(product: product)
+        } else {
+            
+        }
+        
+        updateUI(receivedId: receivedProductId, favoriteButtonn: favoriteButtonn)
+        
+
         
         ProductGenerator().getPath()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: Notification.Name("ProductDataUpdated"), object: nil)
-
+        //        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: Notification.Name("ProductDataUpdated"), object: nil)
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateUI()
+        // updateUI()
     }
     
     func setProduct(product:Product){
@@ -56,27 +68,100 @@ class ProductPageController: UIViewController {
     }
     
     @IBAction func favoriteButtonClicked(_ sender: Any) {
-        
+        /*
         print("amna")
-        if let productToUpdate = product {
-            ProductGenerator().updateFavoriteProduct(productModelName: productToUpdate.modelName ?? .accesor1)
-            updateUI()
+        if favState {
+            favState = false
+            
+        }else{
+            favState = true
+        }
+        
+        let product = ProductGenerator().getInfoById(id: receivedProductId)
+        
+        if let product = product {
+            print("button clicked data")
+            print(product)
             
             
-        }}
+            // Before update
+            let productsBeforeUpdate = myRealm.objects(Product.self)
+            print("Products in Realm before update: \(productsBeforeUpdate)")
+
+            // Perform update
+            ProductGenerator().updateFavoriteProduct(productFromPage: product, favStatus: favState)
+
+            // After update
+            let productsAfterUpdate = myRealm.objects(Product.self)
+            print("Products in Realm after update: \(productsAfterUpdate)")
+            
+            
+            
+            updateUI(receivedId: receivedProductId, favoriteButtonn: favoriteButtonn)
+            
+            
+        } 
+         */
+        
+        /*
+        let product = ProductGenerator().getInfoById(id: receivedProductId)
+
+            if let product = product {
+                // Before update
+                let productsBeforeUpdate = myRealm.objects(Product.self)
+                print("Products in Realm before update: \(productsBeforeUpdate)")
+                print(product)
+
+                // Perform update
+                ProductGenerator().updateFavoriteProduct(productId: product.idProduct, favStatus: favState)
+
+                // After update
+                let productsAfterUpdate = myRealm.objects(Product.self)
+                print("Products in Realm after update: \(productsAfterUpdate)")
+                print(product)
+                updateUI(receivedId: receivedProductId, favoriteButtonn: favoriteButtonn)
+            }
+         */
+        
+        let product = ProductGenerator().getInfoById(id: receivedProductId)
+
+            if let product = product {
+                favState.toggle() // Toggle the favState
+                print("Before Update - favorited: \(product.favorited), favState: \(favState)")
+                ProductGenerator().updateFavoriteProduct(productId: product.idProduct, favStatus: favState)
+                print("After Update - favorited: \(product.favorited), favState: \(favState)")
+                updateUI(receivedId: receivedProductId, favoriteButtonn: favoriteButtonn)
+            }
+        
+    }
     
-    @objc func updateUI() {
-        // Update your UI based on the modified product
-        // For example, change the favorite button image, etc.
-        if let updatedProduct = ProductGenerator().productData.first(where: { $0.modelName == product.modelName }) {
-            product = updatedProduct
+    
+    func updateUI(receivedId: Int, favoriteButtonn: UIButton) {
+        
+        
+        /*
+        let product = ProductGenerator().getInfoById(id: receivedId)
+        if let product = product {
             if product.favorited {
                 favoriteButtonn.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
             } else {
                 favoriteButtonn.setImage(UIImage(systemName: "bookmark"), for: .normal)
             }
         }
-    }
+         */
+        
+        
+        DispatchQueue.main.async {
+                let product = ProductGenerator().getInfoById(id: receivedId)
+                if let product = product {
+                    print("Update UI - favorited: \(product.favorited)")
+                    if product.favorited {
+                        favoriteButtonn.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+                    } else {
+                        favoriteButtonn.setImage(UIImage(systemName: "bookmark"), for: .normal)
+                    }
+                }
+            }    }
+    
+    
 }
-
-

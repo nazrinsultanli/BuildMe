@@ -8,6 +8,8 @@ import Foundation
 import RealmSwift
 
 class Product: Object{
+    @Persisted(primaryKey: true) var idProduct: Int = 0
+    //@Persisted var idProduct: Int
     @Persisted var categoryType: CategoryProduct?
     @Persisted var brandName: BrandProduct?
     @Persisted var modelName: ModelProduct?
@@ -23,7 +25,8 @@ class Product: Object{
     @Persisted var new: Bool
     @Persisted var favorited: Bool
     
-    convenience init(categoryType: CategoryProduct?,
+    convenience init(idProduct: Int,
+                     categoryType: CategoryProduct?,
                      brandName: BrandProduct?,
                      modelName: ModelProduct?,
                      modelCode: String,
@@ -38,6 +41,7 @@ class Product: Object{
                      new: Bool,
                      favorited: Bool) {
         self.init()
+        self.idProduct = idProduct
         self.categoryType = categoryType
         self.brandName = brandName
         self.modelName = modelName
@@ -52,8 +56,11 @@ class Product: Object{
         self.discounted = discounted
         self.new = new
         self.favorited = favorited
-  
     }
+    
+    override static func primaryKey() -> String? {
+            return "idProduct"
+        }
 }
 
 
