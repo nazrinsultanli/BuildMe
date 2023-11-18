@@ -7,5 +7,5 @@
 
 import Foundation
 class FavoritePageViewModel{
-    var favoriteProduct = FavoriteHelper().fetch()
+   // var favoriteProduct = FavoriteHelper().fetch()
 }
