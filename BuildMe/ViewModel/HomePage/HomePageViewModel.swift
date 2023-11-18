@@ -9,7 +9,7 @@ import Foundation
 
 class HomePageViewModel {
     var categoryData = CategoryHelper().categoryData
-    var productData = ProductGenerator().products
+    var productData = ProductGenerator.products
     var filteredProducts: [Product] = []
     
     func newProduct() -> [Product] {

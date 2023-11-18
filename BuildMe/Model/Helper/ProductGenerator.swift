@@ -347,14 +347,14 @@ class ProductGenerator: ObservableObject{
 
 */
 
+
+/*
 import Foundation
 import RealmSwift
 class ProductGenerator: ObservableObject{
-    //private(set) var localRealm: Realm?
     let localRealm = try! Realm()
-    var products = [Product]()
-   // @Published var products: [Product] = []
-    // let myRealm = try! Realm()
+    static var products = [Product]()
+
     var productData = [Product(idProduct: 1001,
                                categoryType: .laminate,
                                brandName: .swiss,
@@ -539,8 +539,8 @@ class ProductGenerator: ObservableObject{
     
     func fetch(){
         let data = localRealm.objects(Product.self)
-        products.removeAll()
-        products.append(contentsOf: data)
+        ProductGenerator.products.removeAll()
+        ProductGenerator.products.append(contentsOf: data)
     }
 
 
@@ -557,10 +557,10 @@ class ProductGenerator: ObservableObject{
         //openRealm()
         getPath()
         print("delete------")
-        print(products)
+        print(ProductGenerator.products)
         print("remove------")
-        products.removeAll()
-        print(products)
+        ProductGenerator.products.removeAll()
+        print(ProductGenerator.products)
 //        do {
 //            try localRealm.write {
 //                localRealm.deleteAll()
@@ -571,7 +571,7 @@ class ProductGenerator: ObservableObject{
 //        }
         print("save------")
         saveItems()
-        print(products)
+        print(ProductGenerator.products)
         print("get-----")
         getProduct()
         
@@ -582,7 +582,7 @@ class ProductGenerator: ObservableObject{
     func getProduct() {
             let allProducts = localRealm.objects(Product.self)
             allProducts.forEach { singleProduct in
-                products.append(singleProduct)
+                ProductGenerator.products.append(singleProduct)
             }
     }
     func saveItems() {
@@ -613,7 +613,7 @@ class ProductGenerator: ObservableObject{
         }
     }
 
-    func getInfoById(id: Int) -> Product? {
+    static func getInfoById(id: Int) -> Product? {
         let pro = products.filter{$0.idProduct == id}.first
         return pro
     }
@@ -621,3 +621,4 @@ class ProductGenerator: ObservableObject{
   
     
 }
+*/

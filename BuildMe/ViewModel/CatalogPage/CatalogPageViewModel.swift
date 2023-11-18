@@ -12,7 +12,7 @@ class CatalogPageViewModel{
     var categoryData = CategoryHelper().categoryData
     var filteredProduct: [Product] = []
     var selectedCategoryType: CategoryProduct?
-    var productData = ProductGenerator().products
+    var productData = ProductGenerator.products
     
     func filteredData() -> [Product]{
         if (selectedCategoryType != nil){

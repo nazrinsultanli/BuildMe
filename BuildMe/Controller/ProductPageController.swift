@@ -29,7 +29,7 @@ class ProductPageController: UIViewController {
 
        
         
-        let product = ProductGenerator().getInfoById(id: receivedProductId)
+        let product = ProductGenerator.getInfoById(id: receivedProductId)
         if let product = product {
             setProduct(product: product)
         } else {
@@ -112,7 +112,7 @@ class ProductPageController: UIViewController {
             }
          */
         
-        let product = ProductGenerator().getInfoById(id: receivedProductId)
+        let product = ProductGenerator.getInfoById(id: receivedProductId)
 
             if let product = product {
                 favState.toggle() // Toggle the favState
@@ -141,7 +141,7 @@ class ProductPageController: UIViewController {
         
         
         DispatchQueue.main.async {
-                let product = ProductGenerator().getInfoById(id: receivedId)
+                let product = ProductGenerator.getInfoById(id: receivedId)
                 if let product = product {
                     print("Update UI - favorited: \(product.favorited)")
                     if product.favorited {
