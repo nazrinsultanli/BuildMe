@@ -7,5 +7,5 @@
 
 import Foundation
 class CatalogProductViewModel{
-    var filteredProducts: [Product] = []
+    var filteredProducts: [PRODUCTJs] = []
 }

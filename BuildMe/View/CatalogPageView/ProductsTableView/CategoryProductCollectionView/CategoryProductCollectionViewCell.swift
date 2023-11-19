@@ -19,10 +19,10 @@ class CategoryProductCollectionViewCell: UICollectionViewCell {
     }
     
     
-    func setCatalogProduct (product: Product){
+    func setCatalogProduct (product: PRODUCTJs){
         //savedBookmark.isHidden = true
-        self.modelNAme.text = product.modelName?.rawValue
-        self.price.text = product.brandName?.rawValue
+        self.modelNAme.text = product.modelName
+        self.price.text = product.brandName
         self.image.image = UIImage(named: product.imageName)
     }
 

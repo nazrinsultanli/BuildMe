@@ -9,6 +9,6 @@ import Foundation
 
 class HomeProductTableViewModel {
 
-    var filteredProducts: [Product] = []
+    var filteredProducts: [PRODUCTJs] = []
 
 }

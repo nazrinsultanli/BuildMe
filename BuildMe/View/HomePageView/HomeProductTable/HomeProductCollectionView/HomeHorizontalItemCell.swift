@@ -20,10 +20,10 @@ class HomeHorizontalItemCell: UICollectionViewCell {
         setView()
     }
     
-    func setHomeProductData (product: Product){
+    func setHomeProductData (product: PRODUCTJs){
         savedBookmark.isHidden = true
-        self.modelName.text = product.modelName?.rawValue
-        self.brandName.text = product.brandName?.rawValue
+        self.modelName.text = product.modelName
+        self.brandName.text = product.brandName
         self.imageView.image = UIImage(named: product.imageName)
     }
 

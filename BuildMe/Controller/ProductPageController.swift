@@ -21,136 +21,67 @@ class ProductPageController: UIViewController {
     @IBOutlet weak var definitionLabel: UILabel!
     @IBOutlet weak var productImage: UIImageView!
     
-    var receivedProductId: Int = 0
+    var viewModel = ProductPageViewModel()
 
-    var favState: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
         
-        let product = ProductGenerator.getInfoById(id: receivedProductId)
-        if let product = product {
-            setProduct(product: product)
+        if let selectedProduct = viewModel.getInfoById(id: viewModel.receivedProductId) {
+            setProduct(product: selectedProduct)
         } else {
-            
         }
         
-        updateUI(receivedId: receivedProductId, favoriteButtonn: favoriteButtonn)
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // updateUI()
-    }
     
-    func setProduct(product:Product){
+    func setProduct(product:PRODUCTJs){
         if (!product.stock){
             inStock.textColor = .red
             inStock.text = "not available"
         }
-        modelName?.text = product.modelName?.rawValue
-        priceLabel?.text = "\(product.price) AZN"
-        productImage?.image = UIImage(named: product.imageName)
-        definitionLabel?.text = product.definition
+        modelName.text = product.modelName
+        priceLabel.text = "\(product.price) AZN"
+        productImage.image = UIImage(named: product.imageName)
+        definitionLabel.text = product.definition
         
     }
     
     @IBAction func favoriteButtonClicked(_ sender: Any) {
-        /*
+        
         print("amna")
-        if favState {
-            favState = false
+        print("state: \(viewModel.favState )")
+        if viewModel.favState {
+            if let selectedProduct = viewModel.getInfoById(id: viewModel.receivedProductId) {
+                viewModel.deleteProduct(product: selectedProduct)
+            } else {
+            }
+            updateUI()
+            
+            viewModel.favState = false
             
         }else{
-            favState = true
+            if let selectedProduct = viewModel.getInfoById(id: viewModel.receivedProductId) {
+                
+                viewModel.addProduct(product: selectedProduct)
+            } else {
+            }
+            updateUI()
+            viewModel.favState = true
         }
-        
-        let product = ProductGenerator().getInfoById(id: receivedProductId)
-        
-        if let product = product {
-            print("button clicked data")
-            print(product)
-            
-            
-            // Before update
-            let productsBeforeUpdate = myRealm.objects(Product.self)
-            print("Products in Realm before update: \(productsBeforeUpdate)")
-
-            // Perform update
-            ProductGenerator().updateFavoriteProduct(productFromPage: product, favStatus: favState)
-
-            // After update
-            let productsAfterUpdate = myRealm.objects(Product.self)
-            print("Products in Realm after update: \(productsAfterUpdate)")
-            
-            
-            
-            updateUI(receivedId: receivedProductId, favoriteButtonn: favoriteButtonn)
-            
-            
-        } 
-         */
-        
-        /*
-        let product = ProductGenerator().getInfoById(id: receivedProductId)
-
-            if let product = product {
-                // Before update
-                let productsBeforeUpdate = myRealm.objects(Product.self)
-                print("Products in Realm before update: \(productsBeforeUpdate)")
-                print(product)
-
-                // Perform update
-                ProductGenerator().updateFavoriteProduct(productId: product.idProduct, favStatus: favState)
-
-                // After update
-                let productsAfterUpdate = myRealm.objects(Product.self)
-                print("Products in Realm after update: \(productsAfterUpdate)")
-                print(product)
-                updateUI(receivedId: receivedProductId, favoriteButtonn: favoriteButtonn)
-            }
-         */
-        
-        let product = ProductGenerator.getInfoById(id: receivedProductId)
-
-            if let product = product {
-                favState.toggle() // Toggle the favState
-                print("Before Update - favorited: \(product.favorited), favState: \(favState)")
-                ProductGenerator().updateFavoriteProduct(productId: product.idProduct, favStatus: favState)
-                print("After Update - favorited: \(product.favorited), favState: \(favState)")
-                updateUI(receivedId: receivedProductId, favoriteButtonn: favoriteButtonn)
-            }
-        
+         
     }
     
     
-    func updateUI(receivedId: Int, favoriteButtonn: UIButton) {
+    func updateUI() {
         
         
-        /*
-        let product = ProductGenerator().getInfoById(id: receivedId)
-        if let product = product {
-            if product.favorited {
-                favoriteButtonn.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-            } else {
-                favoriteButtonn.setImage(UIImage(systemName: "bookmark"), for: .normal)
-            }
+        if !viewModel.favState {
+            favoriteButtonn.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        }else{
+            favoriteButtonn.setImage(UIImage(systemName: "bookmark"), for: .normal)
         }
-         */
-        
-        
-        DispatchQueue.main.async {
-                let product = ProductGenerator.getInfoById(id: receivedId)
-                if let product = product {
-                    print("Update UI - favorited: \(product.favorited)")
-                    if product.favorited {
-                        favoriteButtonn.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-                    } else {
-                        favoriteButtonn.setImage(UIImage(systemName: "bookmark"), for: .normal)
-                    }
-                }
-            }    }
+    }
     
     
 }

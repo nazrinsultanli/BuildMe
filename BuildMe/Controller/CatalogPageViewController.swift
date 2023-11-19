@@ -24,10 +24,10 @@ class CatalogPageViewController: UIViewController {
 
     }
     @objc func productSelected(_ notification: Notification) {
-            if let selectedProduct = notification.object as? Product {
+            if let selectedProduct = notification.object as? PRODUCTJs {
                 // Navigate to the ProductPageController and pass the selected product
                 let productPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductPageController") as! ProductPageController
-                productPageVC.receivedProductId = selectedProduct.idProduct
+                productPageVC.viewModel.receivedProductId = selectedProduct.idProduct
                 navigationController?.pushViewController(productPageVC, animated: true)
             }
         }

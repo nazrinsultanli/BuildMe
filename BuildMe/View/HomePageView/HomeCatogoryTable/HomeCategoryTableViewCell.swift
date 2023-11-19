@@ -53,6 +53,7 @@ extension HomeCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let selectedCategory = viewModel.categoryData[indexPath.item].categoryType
             NotificationCenter.default.post(name: Notification.Name("CategorySelected"), object: selectedCategory)
+        
         }
 }
 

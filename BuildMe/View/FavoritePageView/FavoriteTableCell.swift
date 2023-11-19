@@ -20,11 +20,11 @@ class FavoriteTableCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func setFavTable(product:Product){
+    func setFavTable(product:PRODUCTJs){
         imageName.image = UIImage(named: product.imageName)
         price.text = "\(product.price) AZN"
-        brandName.text = product.brandName?.rawValue
-        modelName.text = product.modelName?.rawValue
+        brandName.text = product.brandName
+        modelName.text = product.modelName
     }
     
 }

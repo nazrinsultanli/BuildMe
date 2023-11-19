@@ -10,20 +10,26 @@ import Foundation
 class CatalogPageViewModel{
     
     var categoryData = CategoryHelper().categoryData
-    var filteredProduct: [Product] = []
+    var filteredProduct: [PRODUCTJs] = []
     var selectedCategoryType: CategoryProduct?
-    var productData = ProductGenerator.products
+    var productData =  ProductJsGenerator().productData
     
-    func filteredData() -> [Product]{
+    
+   
+    
+    func filteredData() -> [PRODUCTJs]{
         if (selectedCategoryType != nil){
-            filteredProduct = productData.filter({ $0.categoryType == selectedCategoryType })
+            filteredProduct = productData.filter({ $0.categoryType == selectedCategoryType?.rawValue ?? ""})
                 return filteredProduct
+            
         }
         else{
             return productData
         }
     }
     
-    
-    
+
+
+    // Inside your filterData method
+  
 }

@@ -45,14 +45,9 @@ extension HomeProductTableViewCell: UICollectionViewDelegate, UICollectionViewDa
         CGSize(width: 250, height: 200)
     }
     
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let selectedProduct = viewModel.filteredProducts[indexPath.item]
-            NotificationCenter.default.post(name: Notification.Name("ProductSelectedFromHome"), object: selectedProduct)
-       
-       
-        
-        }
-    
+           let selectedProduct = viewModel.filteredProducts[indexPath.item]
+           NotificationCenter.default.post(name: Notification.Name("ProductSelectedFromHome"), object: selectedProduct)
+       }
 }
