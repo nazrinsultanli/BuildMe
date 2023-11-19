@@ -37,6 +37,9 @@ class UserHelper {
             print("Realm File Path:\(url)")
         }
     }
+    init(){
+        getPath()
+    }
 }
 
 

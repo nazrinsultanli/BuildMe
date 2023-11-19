@@ -17,13 +17,17 @@ class ProfilePageViewController: UIViewController {
     @IBOutlet weak var signView: UIView!
     @IBOutlet weak var profileICon: UIImageView!
     
-    var savedEmail = UserDefaults.standard.string(forKey: "LoggedIn")
-    
-    var userData = UserHelper().fetch()
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Profile"
-        
+        checkSign()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        checkSign()
+    }
+    
+    func checkSign(){
         if UserDefaults.standard.bool(forKey: "LoggedIn"){
             signed()
         }
@@ -31,8 +35,6 @@ class ProfilePageViewController: UIViewController {
         {
             nonSigned()
         }
-
-      
     }
     
     func nonSigned(){
@@ -46,8 +48,8 @@ class ProfilePageViewController: UIViewController {
         signView.isHidden = true
         profileICon.image = UIImage(systemName: "person.crop.circle.fill")
         
-        if let index = userData.firstIndex(where: {$0.email == savedEmail}){
-            let user = userData[index]
+        if let index = ProfilPageViewModel().userData.firstIndex(where: {$0.email == ProfilPageViewModel().savedEmail}){
+            let user = ProfilPageViewModel().userData[index]
             emailLabel.text = user.email
             fullNameLabel.text = user.fullName
             passwordLabel.text = user.password

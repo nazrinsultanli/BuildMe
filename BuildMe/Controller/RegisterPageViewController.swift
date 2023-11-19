@@ -32,7 +32,8 @@ class RegisterPageViewController: UIViewController {
         let enteredFullName = fullNameTextField.text ?? ""
         let enteredEmail = emailTextField.text ?? ""
         let enteredPassword = passwordTextField.text ?? ""
-        
+        UserDefaults.standard.setValue(true, forKey: "LoggedIn")
+        UserDefaults.standard.setValue(emailTextField.text, forKey: "savedEmail")
         
         if userStorage.fetch().contains(where: {$0.email == emailTextField.text}){
             emailError.isHidden = true
