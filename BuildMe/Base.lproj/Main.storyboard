@@ -479,12 +479,13 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEj-3R-cUJ">
                                         <rect key="frame" x="303" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" name="backgroundC"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="MCs-gV-heJ"/>
                                         </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="mainC"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="person.crop.circle.fill" catalog="system">
+                                        <buttonConfiguration key="configuration" style="plain" image="person.circle" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -567,6 +568,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="diO-QW-uA6"/>
                     <connections>
+                        <outlet property="profilButton" destination="ZEj-3R-cUJ" id="kkp-3B-TBT"/>
                         <outlet property="tableViewm" destination="tw2-oN-JkN" id="HSt-EU-Czc"/>
                     </connections>
                 </viewController>
@@ -582,13 +584,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHq-Pz-Lzd">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHq-Pz-Lzd" customClass="LottieAnimationView" customModule="Lottie">
                                 <rect key="frame" x="96.666666666666686" y="79" width="200" height="200"/>
                                 <color key="backgroundColor" name="mainC"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="C8f-DF-Qph"/>
                                     <constraint firstAttribute="height" constant="200" id="D9U-12-9Wo"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="AnimationLogin"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LZX-2L-n8O">
                                 <rect key="frame" x="20" y="319" width="353" height="343.33333333333326"/>
@@ -605,7 +613,7 @@
                                             <constraint firstAttribute="height" constant="60" id="8iG-Fe-GiY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4xf-Iz-toy">
                                         <rect key="frame" x="0.0" y="120.33333333333331" width="353" height="60"/>
@@ -613,7 +621,7 @@
                                             <constraint firstAttribute="height" constant="60" id="QsA-36-Fub"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wrong password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhY-Zm-Rvk">
                                         <rect key="frame" x="0.0" y="190.33333333333331" width="353" height="0.0"/>
@@ -661,6 +669,7 @@
                     <connections>
                         <outlet property="buttonView" destination="m7a-IW-KSi" id="WoT-Gw-BQE"/>
                         <outlet property="emailTextField" destination="si0-lR-OYu" id="SIa-DM-naF"/>
+                        <outlet property="lottieView" destination="zHq-Pz-Lzd" id="X32-cK-DNF"/>
                         <outlet property="passwordTextField" destination="4xf-Iz-toy" id="2JJ-u6-Qhr"/>
                         <outlet property="wrongPasswordLabel" destination="VhY-Zm-Rvk" id="FU0-Py-fSu"/>
                     </connections>
@@ -677,13 +686,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghE-mM-iaN">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghE-mM-iaN" customClass="LottieAnimationView" customModule="Lottie">
                                 <rect key="frame" x="121.66666666666669" y="109" width="150" height="150"/>
                                 <color key="backgroundColor" name="mainC"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="1Fn-Dh-Eny"/>
                                     <constraint firstAttribute="height" constant="150" id="ZZX-Nu-Per"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="AnimationRegister"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMe-06-QAg">
                                 <rect key="frame" x="20" y="299" width="353" height="50"/>
@@ -817,6 +832,7 @@
                         <outlet property="emailError" destination="OmC-It-MGK" id="CHf-iC-Jdk"/>
                         <outlet property="emailTextField" destination="M25-mx-ztb" id="3pN-AF-mJF"/>
                         <outlet property="fullNameTextField" destination="OPN-ec-zs6" id="L73-XW-QLN"/>
+                        <outlet property="lottiView" destination="ghE-mM-iaN" id="gbN-ra-OwH"/>
                         <outlet property="passwordTextField" destination="yW3-ym-vR7" id="bXO-Av-gU4"/>
                     </connections>
                 </viewController>
@@ -836,7 +852,7 @@
                                 <rect key="frame" x="20" y="269" width="353" height="300"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="VAl-Bg-Msz">
-                                        <rect key="frame" x="20" y="37.666666666666686" width="313" height="225"/>
+                                        <rect key="frame" x="20" y="16" width="313" height="268.33333333333331"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMd-bw-M3w">
                                                 <rect key="frame" x="0.0" y="0.0" width="313" height="30"/>
@@ -895,6 +911,23 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kob-rs-9Rb">
+                                                <rect key="frame" x="0.0" y="234" width="313" height="34.333333333333314"/>
+                                                <color key="backgroundColor" name="mainC"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Log Out"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="logOutButton:" destination="fLF-8O-mNl" eventType="touchUpInside" id="RR1-ci-byc"/>
+                                                    <action selector="logOutButtonClicked:" destination="BDP-lr-8KG" eventType="touchUpInside" id="7Og-R5-AH7"/>
+                                                    <action selector="logOutButtonClicked:" destination="fLF-8O-mNl" eventType="touchUpInside" id="nem-8h-RAp"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -992,6 +1025,7 @@
                     <connections>
                         <outlet property="emailLabel" destination="Lsj-tR-uY9" id="IoI-me-JKc"/>
                         <outlet property="fullNameLabel" destination="qqj-Oe-CWe" id="586-N0-xXE"/>
+                        <outlet property="logOutButton" destination="kob-rs-9Rb" id="wwZ-pC-HZZ"/>
                         <outlet property="loginButton" destination="mqt-Kl-5ra" id="Kvo-mL-oCS"/>
                         <outlet property="passwordLabel" destination="Org-NU-Tzv" id="m3G-HU-KiD"/>
                         <outlet property="profileICon" destination="T4o-zI-xaj" id="UiH-ff-w1U"/>
@@ -1000,6 +1034,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zsx-yg-2ap" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="fLF-8O-mNl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2925.9541984732823" y="895.77464788732402"/>
         </scene>
@@ -1032,6 +1067,7 @@
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
+        <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="backgroundC">
             <color red="0.95300000905990601" green="0.9570000171661377" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

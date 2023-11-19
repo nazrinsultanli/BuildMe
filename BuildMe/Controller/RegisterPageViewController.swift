@@ -6,9 +6,10 @@
 //
 
 import UIKit
-
+import Lottie
 class RegisterPageViewController: UIViewController {
 
+    @IBOutlet weak var lottiView: LottieAnimationView!
     @IBOutlet weak var emailError: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -23,6 +24,7 @@ class RegisterPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Register"
+        lottiView.play()
 
      
     }

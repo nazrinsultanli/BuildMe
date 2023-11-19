@@ -9,6 +9,7 @@ import UIKit
 
 class HomePageViewController: UIViewController {
     
+    @IBOutlet weak var profilButton: UIButton!
     @IBOutlet weak var tableViewm: UITableView!
     
     var viewModel = HomePageViewModel()
@@ -18,6 +19,11 @@ class HomePageViewController: UIViewController {
         title = "BuildMe"
         
         setTableRegister()
+        if UserDefaults.standard.bool(forKey: "LoggedIn"){
+            let newImage = UIImage(systemName: "person.crop.circle.fill")
+            profilButton.setImage(newImage, for: .normal)
+        }
+        profilButton.imageView?.contentMode = .scaleAspectFit
         
   
 

@@ -12,18 +12,15 @@ import RealmSwift
 class ProductPageController: UIViewController {
 
     @IBOutlet weak var totalPrice: UILabel!
-    
     @IBOutlet weak var inStock: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var modelName: UILabel!
-    
     @IBOutlet weak var favoriteButtonn: UIButton!
     @IBOutlet weak var definitionLabel: UILabel!
     @IBOutlet weak var productImage: UIImageView!
     
     var viewModel = ProductPageViewModel()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,8 +28,6 @@ class ProductPageController: UIViewController {
             setProduct(product: selectedProduct)
         } else {
         }
-        
-        
     }
     
     func setProduct(product:PRODUCTJs){
@@ -48,8 +43,6 @@ class ProductPageController: UIViewController {
     }
     
     @IBAction func favoriteButtonClicked(_ sender: Any) {
-        
-        print("amna")
         print("state: \(viewModel.favState )")
         if viewModel.favState {
             if let selectedProduct = viewModel.getInfoById(id: viewModel.receivedProductId) {
@@ -57,7 +50,6 @@ class ProductPageController: UIViewController {
             } else {
             }
             updateUI()
-            
             viewModel.favState = false
             
         }else{
@@ -69,19 +61,13 @@ class ProductPageController: UIViewController {
             updateUI()
             viewModel.favState = true
         }
-         
     }
     
-    
     func updateUI() {
-        
-        
         if !viewModel.favState {
             favoriteButtonn.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
         }else{
             favoriteButtonn.setImage(UIImage(systemName: "bookmark"), for: .normal)
         }
     }
-    
-    
 }

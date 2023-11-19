@@ -22,6 +22,10 @@
 		10353BAD2AFF7F0D00286BB2 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353BAC2AFF7F0D00286BB2 /* RegisterPageViewController.swift */; };
 		10353BB22AFF828F00286BB2 /* HomeProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353BB02AFF828F00286BB2 /* HomeProductTableViewCell.swift */; };
 		10353BB32AFF828F00286BB2 /* HomeProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10353BB12AFF828F00286BB2 /* HomeProductTableViewCell.xib */; };
+		103F8CBA2B0AB16F002F78A4 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 103F8CB92B0AB16F002F78A4 /* Lottie */; };
+		103F8CBC2B0AB20A002F78A4 /* AnimationLogin.json in Resources */ = {isa = PBXBuildFile; fileRef = 103F8CBB2B0AB20A002F78A4 /* AnimationLogin.json */; };
+		103F8CBE2B0AB269002F78A4 /* AnimationRegister1.json in Resources */ = {isa = PBXBuildFile; fileRef = 103F8CBD2B0AB269002F78A4 /* AnimationRegister1.json */; };
+		103F8CC02B0AB29B002F78A4 /* AnimationRegister.json in Resources */ = {isa = PBXBuildFile; fileRef = 103F8CBF2B0AB29B002F78A4 /* AnimationRegister.json */; };
 		104BFD9C2B025A0B000667AE /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104BFD9B2B025A0B000667AE /* ProfilePageViewController.swift */; };
 		104BFD9E2B0285F7000667AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104BFD9D2B0285F7000667AE /* User.swift */; };
 		104BFDA02B028711000667AE /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104BFD9F2B028711000667AE /* UserHelper.swift */; };
@@ -83,6 +87,9 @@
 		10353BAC2AFF7F0D00286BB2 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
 		10353BB02AFF828F00286BB2 /* HomeProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProductTableViewCell.swift; sourceTree = "<group>"; };
 		10353BB12AFF828F00286BB2 /* HomeProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeProductTableViewCell.xib; sourceTree = "<group>"; };
+		103F8CBB2B0AB20A002F78A4 /* AnimationLogin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimationLogin.json; sourceTree = "<group>"; };
+		103F8CBD2B0AB269002F78A4 /* AnimationRegister1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimationRegister1.json; sourceTree = "<group>"; };
+		103F8CBF2B0AB29B002F78A4 /* AnimationRegister.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimationRegister.json; sourceTree = "<group>"; };
 		104BFD9B2B025A0B000667AE /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		104BFD9D2B0285F7000667AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		104BFD9F2B028711000667AE /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
@@ -135,6 +142,7 @@
 			files = (
 				10C754A02AF6955C004ED063 /* RealmSwift in Frameworks */,
 				10C7549E2AF6955C004ED063 /* Realm in Frameworks */,
+				103F8CBA2B0AB16F002F78A4 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +362,9 @@
 				10C754932AF69514004ED063 /* LaunchScreen.storyboard */,
 				10C754962AF69514004ED063 /* Info.plist */,
 				10C7548E2AF69513004ED063 /* BuildMe.xcdatamodeld */,
+				103F8CBB2B0AB20A002F78A4 /* AnimationLogin.json */,
+				103F8CBD2B0AB269002F78A4 /* AnimationRegister1.json */,
+				103F8CBF2B0AB29B002F78A4 /* AnimationRegister.json */,
 			);
 			path = BuildMe;
 			sourceTree = "<group>";
@@ -416,6 +427,7 @@
 			packageProductDependencies = (
 				10C7549D2AF6955C004ED063 /* Realm */,
 				10C7549F2AF6955C004ED063 /* RealmSwift */,
+				103F8CB92B0AB16F002F78A4 /* Lottie */,
 			);
 			productName = BuildMe;
 			productReference = 10C754822AF69513004ED063 /* BuildMe.app */;
@@ -447,6 +459,7 @@
 			mainGroup = 10C754792AF69513004ED063;
 			packageReferences = (
 				10C7549C2AF6955C004ED063 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				103F8CB82B0AB16F002F78A4 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 10C754832AF69513004ED063 /* Products */;
 			projectDirPath = "";
@@ -463,6 +476,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1057A2052AFFAA55003F3C2D /* CatalogProductTableCell.xib in Resources */,
+				103F8CBC2B0AB20A002F78A4 /* AnimationLogin.json in Resources */,
+				103F8CC02B0AB29B002F78A4 /* AnimationRegister.json in Resources */,
 				10353BAB2AFF790B00286BB2 /* HomeCategoryTableViewCell.xib in Resources */,
 				1017DB722AFEA19700B24285 /* HomeHorizontalItemCell.xib in Resources */,
 				1057A1FC2AFFA899003F3C2D /* CatalogCategoryTableViewCell.xib in Resources */,
@@ -470,6 +485,7 @@
 				1017DB832AFEC6C200B24285 /* FavoriteTableCell.xib in Resources */,
 				108B6AF82B0974520058EA3C /* PRODUCTJSON.json in Resources */,
 				1057A2012AFFA99D003F3C2D /* CatalogTypesCollectionViewCell.xib in Resources */,
+				103F8CBE2B0AB269002F78A4 /* AnimationRegister1.json in Resources */,
 				10C754922AF69514004ED063 /* Assets.xcassets in Resources */,
 				1017DB8A2AFED5DA00B24285 /* BasketTableCell.xib in Resources */,
 				10353BB32AFF828F00286BB2 /* HomeProductTableViewCell.xib in Resources */,
@@ -752,6 +768,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		103F8CB82B0AB16F002F78A4 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.3;
+			};
+		};
 		10C7549C2AF6955C004ED063 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -763,6 +787,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		103F8CB92B0AB16F002F78A4 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 103F8CB82B0AB16F002F78A4 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		10C7549D2AF6955C004ED063 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 10C7549C2AF6955C004ED063 /* XCRemoteSwiftPackageReference "realm-swift" */;

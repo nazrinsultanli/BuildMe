@@ -6,8 +6,9 @@
 //
 
 import UIKit
-
+import Lottie
 class LoginPageViewController: UIViewController {
+    @IBOutlet weak var lottieView: LottieAnimationView!
     @IBOutlet weak var wrongPasswordLabel: UILabel!
     
     @IBOutlet weak var buttonView: UIButton!
@@ -20,6 +21,7 @@ class LoginPageViewController: UIViewController {
         super.viewDidLoad()
         title = "Login"
         wrongPasswordLabel.isHidden = true
+        lottieView.play()
         
 //        UserDefaults.standard.setValue(true, forKey: "LoggedIn")
         
@@ -83,6 +85,8 @@ class LoginPageViewController: UIViewController {
         }
         navigationController?.show(registerPage, sender: nil)
     }
+    
+    
     
 }
 
