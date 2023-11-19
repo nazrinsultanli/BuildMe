@@ -70,6 +70,9 @@ class CategoryHelper: ObservableObject {
             })
 
             Realm.Configuration.defaultConfiguration = config
+            
+            
+            
 
             localRealm = try Realm(configuration: config)
         } catch {
@@ -97,11 +100,26 @@ class CategoryHelper: ObservableObject {
             categories.append(contentsOf: data)
         }
     }
+    func delete() {
+        if let localRealm = localRealm {
+            do {
+                try localRealm.write {
+                    localRealm.deleteAll()
+                    print("delete all categories in Realm!")
+                }
+            } catch {
+                print("Error deleting categories in Realm", error)
+            }
+        }
+    }
+
 
     init() {
         openRealm()
+        //delete() // it throw error
         saveItems()
         fetch()
+        
     }
 }
 
