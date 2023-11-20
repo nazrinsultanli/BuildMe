@@ -24,12 +24,23 @@ class ProductPageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         if let selectedProduct = viewModel.getInfoById(id: viewModel.receivedProductId) {
             setProduct(product: selectedProduct)
         } else {
         }
+        
     }
     
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if !viewModel.temperoryFavProduct.isEmpty{
+            viewModel.favProductData.append(viewModel.temperoryFavProduct[0])
+            FavoriteFromJson.shared.writeFavProducts(writeFavProduct: viewModel.favProductData)
+
+        }
+    }
     func setProduct(product:PRODUCTJs){
         if (!product.stock){
             inStock.textColor = .red
@@ -46,16 +57,15 @@ class ProductPageController: UIViewController {
         print("state: \(viewModel.favState )")
         if viewModel.favState {
             if let selectedProduct = viewModel.getInfoById(id: viewModel.receivedProductId) {
-                viewModel.deleteProduct(product: selectedProduct)
+                viewModel.temperoryFavProduct.append(selectedProduct)
             } else {
             }
             updateUI()
             viewModel.favState = false
             
         }else{
-            if let selectedProduct = viewModel.getInfoById(id: viewModel.receivedProductId) {
-                
-                viewModel.addProduct(product: selectedProduct)
+            if viewModel.getInfoById(id: viewModel.receivedProductId) != nil {
+                viewModel.temperoryFavProduct.removeLast()
             } else {
             }
             updateUI()
@@ -64,7 +74,7 @@ class ProductPageController: UIViewController {
     }
     
     func updateUI() {
-        if !viewModel.favState {
+        if viewModel.favState {
             favoriteButtonn.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
         }else{
             favoriteButtonn.setImage(UIImage(systemName: "bookmark"), for: .normal)

@@ -5,6 +5,24 @@
 //  Created by Nazrin Sultanlı on 19.11.23.
 //
 
+
+import Foundation
+import RealmSwift
+class ProductPageViewModel{
+    var productData = ProductJsGenerator().productData
+    
+    
+    var receivedProductId: Int = 0
+    var favState: Bool = true
+    var favProductData = [PRODUCTJs]()
+    var temperoryFavProduct = [PRODUCTJs]()
+    
+    func getInfoById(id: Int) -> PRODUCTJs? {
+        return productData.filter { $0.idProduct == id }.first
+    }
+}
+
+/*
 import Foundation
 import RealmSwift
 class ProductPageViewModel{
@@ -40,3 +58,4 @@ class ProductPageViewModel{
         }
     }
 }
+*/

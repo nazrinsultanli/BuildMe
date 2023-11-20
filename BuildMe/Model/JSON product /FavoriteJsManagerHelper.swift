@@ -9,6 +9,8 @@ import Foundation
 
 class FavoriteJsManagerHelper{
     
+    
+    
     func getFilePath() -> URL{
         let files = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let path = files[0].appendingPathComponent("favorites.json")
