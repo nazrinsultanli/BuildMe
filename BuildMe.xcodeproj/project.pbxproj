@@ -17,6 +17,8 @@
 		1017DB852AFED4CB00B24285 /* ProductPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1017DB842AFED4CB00B24285 /* ProductPageController.swift */; };
 		1017DB892AFED5DA00B24285 /* BasketTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1017DB872AFED5DA00B24285 /* BasketTableCell.swift */; };
 		1017DB8A2AFED5DA00B24285 /* BasketTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1017DB882AFED5DA00B24285 /* BasketTableCell.xib */; };
+		102FD3212B0BF486002572DF /* FavoriteJsManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102FD3202B0BF486002572DF /* FavoriteJsManagerHelper.swift */; };
+		102FD3232B0BF4F4002572DF /* FavoriteFromJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102FD3222B0BF4F4002572DF /* FavoriteFromJson.swift */; };
 		10353BAA2AFF790B00286BB2 /* HomeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353BA82AFF790B00286BB2 /* HomeCategoryTableViewCell.swift */; };
 		10353BAB2AFF790B00286BB2 /* HomeCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10353BA92AFF790B00286BB2 /* HomeCategoryTableViewCell.xib */; };
 		10353BAD2AFF7F0D00286BB2 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353BAC2AFF7F0D00286BB2 /* RegisterPageViewController.swift */; };
@@ -82,6 +84,8 @@
 		1017DB842AFED4CB00B24285 /* ProductPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageController.swift; sourceTree = "<group>"; };
 		1017DB872AFED5DA00B24285 /* BasketTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableCell.swift; sourceTree = "<group>"; };
 		1017DB882AFED5DA00B24285 /* BasketTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketTableCell.xib; sourceTree = "<group>"; };
+		102FD3202B0BF486002572DF /* FavoriteJsManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteJsManagerHelper.swift; sourceTree = "<group>"; };
+		102FD3222B0BF4F4002572DF /* FavoriteFromJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFromJson.swift; sourceTree = "<group>"; };
 		10353BA82AFF790B00286BB2 /* HomeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		10353BA92AFF790B00286BB2 /* HomeCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		10353BAC2AFF7F0D00286BB2 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
@@ -298,6 +302,8 @@
 				108B6AF92B0974E00058EA3C /* PRODUCTJs.swift */,
 				108B6AFB2B09751C0058EA3C /* Parser.swift */,
 				108B6AFD2B09757D0058EA3C /* ProductJsGenerator.swift */,
+				102FD3202B0BF486002572DF /* FavoriteJsManagerHelper.swift */,
+				102FD3222B0BF4F4002572DF /* FavoriteFromJson.swift */,
 			);
 			path = "JSON product ";
 			sourceTree = "<group>";
@@ -511,11 +517,13 @@
 				108FCE052B015A0D00516822 /* CatalogProductViewModel.swift in Sources */,
 				108B6B012B0986D70058EA3C /* ProductPageViewModel.swift in Sources */,
 				1017DB892AFED5DA00B24285 /* BasketTableCell.swift in Sources */,
+				102FD3212B0BF486002572DF /* FavoriteJsManagerHelper.swift in Sources */,
 				1017DB712AFEA19700B24285 /* HomeHorizontalItemCell.swift in Sources */,
 				1057A2042AFFAA55003F3C2D /* CatalogProductTableCell.swift in Sources */,
 				10353BAD2AFF7F0D00286BB2 /* RegisterPageViewController.swift in Sources */,
 				108FCDFD2B0137E000516822 /* CategoryHelper.swift in Sources */,
 				108B6AFA2B0974E00058EA3C /* PRODUCTJs.swift in Sources */,
+				102FD3232B0BF4F4002572DF /* FavoriteFromJson.swift in Sources */,
 				104BFDA02B028711000667AE /* UserHelper.swift in Sources */,
 				10C754AC2AF6997A004ED063 /* FavoritePageViewController.swift in Sources */,
 				10C754A82AF69902004ED063 /* HomePageViewController.swift in Sources */,
