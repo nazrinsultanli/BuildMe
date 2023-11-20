@@ -7,8 +7,6 @@
 
 import UIKit
 
-import RealmSwift
-
 class ProductPageController: UIViewController {
 
     @IBOutlet weak var totalPrice: UILabel!
@@ -23,24 +21,13 @@ class ProductPageController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         if let selectedProduct = viewModel.getInfoById(id: viewModel.receivedProductId) {
+            viewModel.favState = selectedProduct.favorited
             setProduct(product: selectedProduct)
-        } else {
-        }
-        
-    }
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if !viewModel.temperoryFavProduct.isEmpty{
-            viewModel.favProductData.append(viewModel.temperoryFavProduct[0])
-            FavoriteFromJson.shared.writeFavProducts(writeFavProduct: viewModel.favProductData)
-
+            
         }
     }
+    
     func setProduct(product:PRODUCTJs){
         if (!product.stock){
             inStock.textColor = .red
@@ -50,27 +37,19 @@ class ProductPageController: UIViewController {
         priceLabel.text = "\(product.price) AZN"
         productImage.image = UIImage(named: product.imageName)
         definitionLabel.text = product.definition
-        
+        updateUI()
     }
     
     @IBAction func favoriteButtonClicked(_ sender: Any) {
         print("state: \(viewModel.favState )")
         if viewModel.favState {
-            if let selectedProduct = viewModel.getInfoById(id: viewModel.receivedProductId) {
-                viewModel.temperoryFavProduct.append(selectedProduct)
-            } else {
-            }
-            updateUI()
             viewModel.favState = false
-            
         }else{
-            if viewModel.getInfoById(id: viewModel.receivedProductId) != nil {
-                viewModel.temperoryFavProduct.removeLast()
-            } else {
-            }
-            updateUI()
             viewModel.favState = true
         }
+        viewModel.updateFavById(id: viewModel.receivedProductId, state: viewModel.favState)
+        updateUI()
+        
     }
     
     func updateUI() {

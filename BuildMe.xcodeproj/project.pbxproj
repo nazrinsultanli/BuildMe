@@ -19,6 +19,8 @@
 		1017DB8A2AFED5DA00B24285 /* BasketTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1017DB882AFED5DA00B24285 /* BasketTableCell.xib */; };
 		102FD3212B0BF486002572DF /* FavoriteJsManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102FD3202B0BF486002572DF /* FavoriteJsManagerHelper.swift */; };
 		102FD3232B0BF4F4002572DF /* FavoriteFromJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102FD3222B0BF4F4002572DF /* FavoriteFromJson.swift */; };
+		102FD3252B0C018C002572DF /* ProductJsFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102FD3242B0C018C002572DF /* ProductJsFileManager.swift */; };
+		102FD3272B0C01E3002572DF /* ProductJsParsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102FD3262B0C01E3002572DF /* ProductJsParsHelper.swift */; };
 		10353BAA2AFF790B00286BB2 /* HomeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353BA82AFF790B00286BB2 /* HomeCategoryTableViewCell.swift */; };
 		10353BAB2AFF790B00286BB2 /* HomeCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10353BA92AFF790B00286BB2 /* HomeCategoryTableViewCell.xib */; };
 		10353BAD2AFF7F0D00286BB2 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10353BAC2AFF7F0D00286BB2 /* RegisterPageViewController.swift */; };
@@ -86,6 +88,8 @@
 		1017DB882AFED5DA00B24285 /* BasketTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketTableCell.xib; sourceTree = "<group>"; };
 		102FD3202B0BF486002572DF /* FavoriteJsManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteJsManagerHelper.swift; sourceTree = "<group>"; };
 		102FD3222B0BF4F4002572DF /* FavoriteFromJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFromJson.swift; sourceTree = "<group>"; };
+		102FD3242B0C018C002572DF /* ProductJsFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductJsFileManager.swift; sourceTree = "<group>"; };
+		102FD3262B0C01E3002572DF /* ProductJsParsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductJsParsHelper.swift; sourceTree = "<group>"; };
 		10353BA82AFF790B00286BB2 /* HomeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		10353BA92AFF790B00286BB2 /* HomeCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		10353BAC2AFF7F0D00286BB2 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +308,8 @@
 				108B6AFD2B09757D0058EA3C /* ProductJsGenerator.swift */,
 				102FD3202B0BF486002572DF /* FavoriteJsManagerHelper.swift */,
 				102FD3222B0BF4F4002572DF /* FavoriteFromJson.swift */,
+				102FD3242B0C018C002572DF /* ProductJsFileManager.swift */,
+				102FD3262B0C01E3002572DF /* ProductJsParsHelper.swift */,
 			);
 			path = "JSON product ";
 			sourceTree = "<group>";
@@ -511,6 +517,7 @@
 				108FCDFF2B0139F800516822 /* HomeCategoryTableViewModel.swift in Sources */,
 				108FCDF92B0133EB00516822 /* HomeProductTableViewModel.swift in Sources */,
 				1017DB852AFED4CB00B24285 /* ProductPageController.swift in Sources */,
+				102FD3252B0C018C002572DF /* ProductJsFileManager.swift in Sources */,
 				10A456EB2B06765F007BA7A3 /* FavoriteHelper.swift in Sources */,
 				108305EE2AFD30D8007D48A9 /* HomeCategoryHeaderCell.swift in Sources */,
 				104BFD9E2B0285F7000667AE /* User.swift in Sources */,
@@ -549,6 +556,7 @@
 				10C754AA2AF6995A004ED063 /* CatalogPageViewController.swift in Sources */,
 				1074E61F2B09A46E009D9AC4 /* ProfilPageViewModel.swift in Sources */,
 				10353BB22AFF828F00286BB2 /* HomeProductTableViewCell.swift in Sources */,
+				102FD3272B0C01E3002572DF /* ProductJsParsHelper.swift in Sources */,
 				104BFDA42B02904A000667AE /* RegisterPageViewModel.swift in Sources */,
 				1057A2092AFFAB52003F3C2D /* CategoryProductCollectionViewCell.swift in Sources */,
 				10C754882AF69513004ED063 /* SceneDelegate.swift in Sources */,

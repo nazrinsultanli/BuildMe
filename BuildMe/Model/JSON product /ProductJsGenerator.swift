@@ -9,17 +9,26 @@ import Foundation
 
 
 class ProductJsGenerator {
-    let parser = Parser()
-    var productData = [PRODUCTJs]()
     
-    init()
-    {
-        pars()
+    static let shared = ProductJsGenerator()
+    var productData = [PRODUCTJs]()
+    let helper = ProductJsFileManager()
+    //let emailSaved = UserDefaults().string(forKey: "savedEmail")
+    
+    
+    func readProducts() -> [PRODUCTJs] {
+        helper.readData { item in
+            self.productData = item
+        }
+        return productData
     }
     
-    func pars(){
-        parser.parseJsonFile{ items in
-            self.productData = items
-        }
+    func writeProducts(product: [PRODUCTJs]){
+        helper.writeData(product: product)
+    }
+    
+    init(){
+        writeProducts(product: ProductJsParsHelper().productData)
+        productData = readProducts()
     }
 }
