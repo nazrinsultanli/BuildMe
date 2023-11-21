@@ -22,10 +22,11 @@ class BasketTableCell: UITableViewCell {
     
     func setBasketTable(product:PRODUCTJs){
         myImage.image = UIImage(named: product.imageName)
-        price.text = "\(product.price) AZN"
         brandName.text = product.brandName
         modelName.text = product.modelName
         quantity.text = "Order: \(product.order)"
+        let totalPriceValue = Double(product.order) * product.price
+        price.text = "\(totalPriceValue) $"
     }
     
 }

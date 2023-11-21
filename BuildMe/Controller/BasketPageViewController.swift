@@ -9,21 +9,33 @@ import UIKit
 
 class BasketPageViewController: UIViewController {
 
+    @IBOutlet weak var totalValue: UILabel!
     @IBOutlet weak var tableView: UITableView!
-  var viewModel = BasketPageViewModel()
+    
+    var viewModel = BasketPageViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
-
-        
-       
+        calculateTotal()
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.refreshData()
+        calculateTotal()
         tableView.reloadData()
     }
+    
+    
+    func calculateTotal() {
+            viewModel.total = 0 // Reset total before calculating again
+            
+            for product in viewModel.productData where product.basketed {
+                let totalPriceValue = Double(product.order) * product.price
+                viewModel.total += totalPriceValue
+            }
+            
+            totalValue.text = "\(viewModel.total) $"
+        }
     
     func setUpTableView(){
         tableView.dataSource = self
@@ -34,7 +46,11 @@ class BasketPageViewController: UIViewController {
         tableView.reloadData()
     }
 
-
+    @IBAction func checkOutButtonClicked(_ sender: Any) {
+        let cv = storyboard?.instantiateViewController(identifier: "CheckOutPageViewController") as! CheckOutPageViewController
+        navigationController?.show(cv, sender: nil)
+    }
+    
 }
 
 
@@ -53,11 +69,14 @@ extension BasketPageViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Perform the delete action (remove item from your data source)
-            //yourDataSourceArray.remove(at: indexPath.row)
-
-            // Update the table view to reflect the changes
+            var productToDelete = viewModel.productData.filter { $0.basketed == true }[indexPath.row]
+            
+            productToDelete.basketed = false
+   
             tableView.deleteRows(at: [indexPath], with: .fade)
+
+            ParserforFav.shared.writeData(to: "productLocal.json", data: viewModel.productData)
+            calculateTotal()
         }
     }
 

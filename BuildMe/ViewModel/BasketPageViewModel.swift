@@ -10,6 +10,7 @@ import Foundation
 import Foundation
 class BasketPageViewModel{
     var productData: [PRODUCTJs] = []
+    var total: Double = 0.0
 
     func refreshData() {
         ParserforFav.shared.readData(from: "productLocal.json") { [weak self] (products: [PRODUCTJs]?) in
