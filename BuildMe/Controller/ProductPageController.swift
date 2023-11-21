@@ -41,7 +41,6 @@ class ProductPageController: UIViewController {
     }
     
     @IBAction func favoriteButtonClicked(_ sender: Any) {
-        print("state: \(viewModel.favState )")
         if viewModel.favState {
             viewModel.favState = false
         }else{

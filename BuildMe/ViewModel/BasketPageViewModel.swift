@@ -1,12 +1,14 @@
 //
-//  FavoritePageViewModel.swift
+//  BasketPageViewModel.swift
 //  BuildMe
 //
-//  Created by Nazrin Sultanlı on 16.11.23.
+//  Created by Nazrin Sultanlı on 21.11.23.
 //
 
 import Foundation
-class FavoritePageViewModel{
+
+import Foundation
+class BasketPageViewModel{
     var productData: [PRODUCTJs] = []
 
     func refreshData() {

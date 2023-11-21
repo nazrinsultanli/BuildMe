@@ -15,10 +15,6 @@ class FavoritePageViewController: UIViewController {
         
         super.viewDidLoad()
         setUpTableView()
-        
-        
-        tableView.reloadData()
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,12 +31,11 @@ class FavoritePageViewController: UIViewController {
         
     }
     
-    func addToBasket(for index: Int) {
-        guard index < viewModel.productData.count else { return }
+    func addToBasket(for id: Int) {
         
-        let updatedProduct = viewModel.productData[index]
-        updatedProduct.basketed = true
-        viewModel.productData[index] = updatedProduct
+        let updatedProduct = viewModel.productData.filter({ $0.idProduct == id }).first
+        updatedProduct?.basketed = true
+        updatedProduct?.order =  (updatedProduct?.order ?? 0) + 1
       
         ParserforFav.shared.writeData(to: "productLocal.json", data: viewModel.productData)
         
@@ -68,8 +63,9 @@ extension FavoritePageViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableCell", for: indexPath) as! FavoriteTableCell
        
         cell.basketButtonClicked = {index, title in
+            print("index: \(index)")
             self.showAlert(title: self.viewModel.productData.filter({ $0.favorited == true })[indexPath.row].modelName)
-            self.addToBasket(for: index)
+            self.addToBasket(for: self.viewModel.productData.filter({ $0.favorited == true })[indexPath.row].idProduct)
         }
         
         

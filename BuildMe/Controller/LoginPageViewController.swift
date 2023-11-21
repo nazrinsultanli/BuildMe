@@ -22,10 +22,6 @@ class LoginPageViewController: UIViewController {
         title = "Login"
         wrongPasswordLabel.isHidden = true
         lottieView.play()
-        
-//        UserDefaults.standard.setValue(true, forKey: "LoggedIn")
-        
-        print(viewModel.userData)
         setupUI()
         
     }

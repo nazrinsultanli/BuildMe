@@ -19,10 +19,13 @@ class BasketTableCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setBasketTable(product:PRODUCTJs){
+        myImage.image = UIImage(named: product.imageName)
+        price.text = "\(product.price) AZN"
+        brandName.text = product.brandName
+        modelName.text = product.modelName
+        quantity.text = "Order: \(product.order)"
     }
     
 }

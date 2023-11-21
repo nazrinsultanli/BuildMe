@@ -20,8 +20,8 @@
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWj-KK-CPd">
                         <rect key="frame" x="30" y="21" width="381" height="315"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YUd-SC-L9a">
-                                <rect key="frame" x="0.0" y="-1" width="150" height="315.66666666666669"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YUd-SC-L9a">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="315"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Fiu-i3-16e"/>
                                 </constraints>
@@ -101,6 +101,11 @@
                     <constraint firstAttribute="bottomMargin" secondItem="iWj-KK-CPd" secondAttribute="bottom" constant="10" id="Mkq-eN-46Q"/>
                     <constraint firstAttribute="trailingMargin" secondItem="iWj-KK-CPd" secondAttribute="trailing" constant="10" id="a2d-cc-8YM"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                        <integer key="value" value="25"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
@@ -114,7 +119,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
