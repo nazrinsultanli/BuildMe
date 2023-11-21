@@ -9,12 +9,15 @@ import UIKit
 
 class FavoriteTableCell: UITableViewCell {
 
+    @IBOutlet weak var addToBasketButton: UIButton!
     @IBOutlet weak var imageName: UIImageView!
     
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var brandName: UILabel!
     
     @IBOutlet weak var modelName: UILabel!
+    
+    var basketButtonClicked: ((Int, String)->Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,4 +30,11 @@ class FavoriteTableCell: UITableViewCell {
         modelName.text = product.modelName
     }
     
+    @IBAction func addToBasketClicked(_ sender: Any) {
+        basketButtonClicked?(tag, "")
+        
+    }
+    
 }
+
+

@@ -18,4 +18,7 @@ class PRODUCTJs: Object, Codable {
     @Persisted var discounted: Bool
     @Persisted var new: Bool
     @Persisted var favorited: Bool
+    @Persisted var basketed: Bool
+    @Persisted var order: Int
+    
 }

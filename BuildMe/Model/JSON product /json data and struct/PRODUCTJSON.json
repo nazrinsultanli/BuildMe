@@ -14,7 +14,10 @@
         "featured": true,
         "discounted": false,
         "new": true,
-        "favorited": false
+        "favorited": false,
+        "basketed": false,
+        "order": 0
+   
     },
     {
         "idProduct": 1002,
@@ -31,7 +34,9 @@
         "featured": true,
         "discounted": true,
         "new": true,
-        "favorited": false
+        "favorited": false,
+        "basketed": false,
+        "order": 0
     },
     {
         "idProduct": 1003,
@@ -48,7 +53,9 @@
         "featured": true,
         "discounted": false,
         "new": true,
-        "favorited": false
+        "favorited": false,
+        "basketed": false,
+        "order": 0
     },
     {
         "idProduct": 1004,
@@ -65,7 +72,9 @@
         "featured": true,
         "discounted": false,
         "new": true,
-        "favorited": false
+        "favorited": false,
+        "basketed": false,
+        "order": 0
     },
     {
         "idProduct": 1005,
@@ -82,7 +91,9 @@
         "featured": false,
         "discounted": true,
         "new": false,
-        "favorited": false
+        "favorited": false,
+        "basketed": false,
+        "order": 0
     },
     {
         "idProduct": 1006,
@@ -99,7 +110,9 @@
         "featured": true,
         "discounted": true,
         "new": true,
-        "favorited": false
+        "favorited": false,
+        "basketed": false,
+        "order": 0
     },
     {
         "idProduct": 1007,
@@ -116,7 +129,9 @@
         "featured": true,
         "discounted": false,
         "new": true,
-        "favorited": false
+        "favorited": false,
+        "basketed": false,
+        "order": 0
     },
     {
         "idProduct": 1008,
@@ -133,7 +148,9 @@
         "featured": true,
         "discounted": false,
         "new": true,
-        "favorited": false
+        "favorited": false,
+        "basketed": false,
+        "order": 0
     },
     {
         "idProduct": 1009,
@@ -150,7 +167,9 @@
         "featured": true,
         "discounted": false,
         "new": true,
-        "favorited": false
+        "favorited": false,
+        "basketed": false,
+        "order": 0
     },
     {
         "idProduct": 1010,
@@ -167,7 +186,9 @@
         "featured": true,
         "discounted": false,
         "new": true,
-        "favorited": false
+        "favorited": false,
+        "basketed": false,
+        "order": 0
     },
     {
         "idProduct": 1011,
@@ -184,7 +205,9 @@
         "featured": true,
         "discounted": false,
         "new": true,
-        "favorited": false
+        "favorited": false,
+        "basketed": false,
+        "order": 0
     },
     {
         "idProduct": 1012,
@@ -201,6 +224,8 @@
         "featured": true,
         "discounted": true,
         "new": true,
-        "favorited": false
+        "favorited": false,
+        "basketed": false,
+        "order": 0
     }
 ]

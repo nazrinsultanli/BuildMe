@@ -7,5 +7,14 @@
 
 import Foundation
 class FavoritePageViewModel{
-   // var favoriteProduct = FavoriteHelper().fetch()
+    var productData: [PRODUCTJs] = []
+
+    func refreshData() {
+        ParserforFav.shared.readData(from: "productLocal.json") { [weak self] (products: [PRODUCTJs]?) in
+            if let products = products {
+                self?.productData = products
+                print(products)
+            }
+        }
+    }
 }

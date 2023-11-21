@@ -20,11 +20,16 @@
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtJ-P7-xUa">
                         <rect key="frame" x="0.0" y="0.0" width="442" height="143"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="florinsign.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qsu-Qw-v4n">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="florinsign.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qsu-Qw-v4n">
                                 <rect key="frame" x="0.0" y="1.6666666666666572" width="140" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="Ftd-hz-VAi"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P0U-xU-Wg7">
                                 <rect key="frame" x="140" y="0.0" width="20" height="143"/>
@@ -69,6 +74,14 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Add To Basket"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addToBasketClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3l4-eR-MO2"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -94,6 +107,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addToBasketButton" destination="cEl-GX-NUM" id="a6e-ry-VMe"/>
                 <outlet property="brandName" destination="WUn-As-SDg" id="dqi-YK-7Gs"/>
                 <outlet property="imageName" destination="qsu-Qw-v4n" id="jrJ-hY-axK"/>
                 <outlet property="modelName" destination="byC-GS-r1W" id="a2c-YH-b1d"/>
