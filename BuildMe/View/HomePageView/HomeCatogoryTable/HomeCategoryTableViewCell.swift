@@ -7,16 +7,16 @@
 
 import UIKit
 
-//protocol HomeCategoryDelegate{
-//    func categorySelected(selectedCategory: CategoryProduct)
-//}
+protocol HomeCategoryDelegate {
+    func categorySelected(selectedCategory: CategoryProduct)
+}
 
 class HomeCategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionViewm: UICollectionView!
     
     var viewModel = HomeCategoryTableViewModel()
-   // var delegate: HomeCategoryDelegate?
+     var delegate: HomeCategoryDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +29,7 @@ class HomeCategoryTableViewCell: UITableViewCell {
         
         let nib = UINib(nibName: "\(HomeCategoryHeaderCell.self)", bundle: nil)
         collectionViewm.register(nib, forCellWithReuseIdentifier: "HomeCategoryHeaderCell")
-        }
+    }
 }
 
 
@@ -51,9 +51,8 @@ extension HomeCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewD
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let selectedCategory = viewModel.categoryData[indexPath.item].categoryType
-            NotificationCenter.default.post(name: Notification.Name("CategorySelected"), object: selectedCategory)
-        
-        }
+        guard let selectedCategory = viewModel.categoryData[indexPath.item].categoryType else { return }
+        delegate?.categorySelected(selectedCategory: selectedCategory)
+    }
 }
 

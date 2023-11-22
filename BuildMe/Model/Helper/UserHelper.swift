@@ -1,5 +1,5 @@
 //
-//  UserHelper.swift
+//  UserHelpeUserHelperr.swift
 //  BuildMe
 //
 //  Created by Nazrin Sultanlı on 13.11.23.
@@ -21,7 +21,7 @@ class UserHelper {
         }
     }
     
-    func fetch()->[User]{
+    func fetch() -> [User] {
         
         do{
             let data = myRealm.objects(User.self)

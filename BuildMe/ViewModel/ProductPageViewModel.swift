@@ -6,6 +6,8 @@ import Foundation
 class ProductPageViewModel {
     static let shared = ProductPageViewModel()
     var productData: [PRODUCTJs]
+    var  totalPriceValue: Double = 0.0
+    var orderCount: Int = 0
 
     init() {
         // Load data from FileManagerHelper

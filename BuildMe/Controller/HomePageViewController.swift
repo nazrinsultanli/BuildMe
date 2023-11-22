@@ -25,13 +25,7 @@ class HomePageViewController: UIViewController {
         }
         profilButton.imageView?.contentMode = .scaleAspectFit
         
-  
-
-        NotificationCenter.default.addObserver(self, selector: #selector(categorySelected(_:)), name: Notification.Name("CategorySelected"), object: nil)
-                
         NotificationCenter.default.addObserver(self, selector: #selector(productSelected(_:)), name: Notification.Name("ProductSelectedFromHome"), object: nil)
-           
-        
     }
     
     
@@ -106,6 +100,7 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
         switch (indexPath.section ) {
         case 0:
             let cell = tableViewm.dequeueReusableCell(withIdentifier: "\(HomeCategoryTableViewCell.self)", for: indexPath) as! HomeCategoryTableViewCell
+            cell.delegate = self
             cell.viewModel.categoryData = viewModel.categoryData
             return cell
         
@@ -137,3 +132,10 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
  
+extension HomePageViewController: HomeCategoryDelegate {
+    func categorySelected(selectedCategory: CategoryProduct) {
+        NotificationCenter.default.post(Notification(name: Notification.Name("CategorySelected"),
+                                                     userInfo: ["category": selectedCategory]))
+        self.tabBarController?.selectedIndex = 1
+    }
+}

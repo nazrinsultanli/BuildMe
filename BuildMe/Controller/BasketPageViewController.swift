@@ -9,6 +9,8 @@ import UIKit
 
 class BasketPageViewController: UIViewController {
 
+    @IBOutlet weak var checkOutButton: UIButton!
+    @IBOutlet weak var emptyBasketLabel: UILabel!
     @IBOutlet weak var totalValue: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,14 +19,28 @@ class BasketPageViewController: UIViewController {
         super.viewDidLoad()
         setUpTableView()
         calculateTotal()
+        notBasketSetUpUi()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.refreshData()
+        notBasketSetUpUi()
         calculateTotal()
         tableView.reloadData()
     }
     
+    func notBasketSetUpUi(){
+        if !viewModel.productData.filter({ $0.basketed == true }).isEmpty {
+            emptyBasketLabel.isHidden = true
+            checkOutButton.isHidden = false
+            totalValue.isHidden = false
+        }else{
+            emptyBasketLabel.isHidden = false
+  
+            checkOutButton.isHidden = true
+            totalValue.isHidden = true
+        }
+    }
     
     func calculateTotal() {
             viewModel.total = 0 // Reset total before calculating again
@@ -69,7 +85,7 @@ extension BasketPageViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            var productToDelete = viewModel.productData.filter { $0.basketed == true }[indexPath.row]
+            let productToDelete = viewModel.productData.filter { $0.basketed == true }[indexPath.row]
             
             productToDelete.basketed = false
    
@@ -77,6 +93,7 @@ extension BasketPageViewController: UITableViewDelegate, UITableViewDataSource {
 
             ParserforFav.shared.writeData(to: "productLocal.json", data: viewModel.productData)
             calculateTotal()
+            notBasketSetUpUi()
         }
     }
 

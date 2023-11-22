@@ -62,7 +62,11 @@ class ProductPageController: UIViewController {
     
     @IBAction func minusButtonClicked(_ sender: Any) {
         if let updatedProduct = viewModel.getInfoById(id: viewModel.receivedProductId), updatedProduct.order > 0 {
-            updatedProduct.order -= 1
+            if viewModel.orderCount > 0{
+                viewModel.orderCount -= 1
+            }
+            
+            updatedProduct.order -= viewModel.orderCount
             ParserforFav.shared.writeData(to: "productLocal.json", data: viewModel.productData)
             updateUI(for: updatedProduct)
         }
@@ -70,7 +74,8 @@ class ProductPageController: UIViewController {
     
     @IBAction func plusButtonClicked(_ sender: Any) {
         if let updatedProduct = viewModel.getInfoById(id: viewModel.receivedProductId) {
-            updatedProduct.order += 1
+            viewModel.orderCount += 1
+            updatedProduct.order += viewModel.orderCount
             ParserforFav.shared.writeData(to: "productLocal.json", data: viewModel.productData)
             updateUI(for: updatedProduct)
         }
@@ -78,9 +83,9 @@ class ProductPageController: UIViewController {
     
 
     func updateUI(for product: PRODUCTJs) {
-        let totalPriceValue = Double(product.order) * product.price
-        totalPrice.text = "\(totalPriceValue) $"
-        orderNumber.text = "\(product.order)"
+        viewModel.totalPriceValue = Double(product.order) * product.price
+        totalPrice.text = "\(viewModel.totalPriceValue) $"
+        orderNumber.text = "\(viewModel.orderCount)"
     }
 
     @IBAction func addToChartClicked(_ sender: Any) {
@@ -91,6 +96,10 @@ class ProductPageController: UIViewController {
             let okButton = UIAlertAction(title: "OK", style: .default)
             alert.addAction(okButton)
             present(alert, animated: true)
+            viewModel.orderCount = 0
+            viewModel.totalPriceValue = 0.0
+            totalPrice.text = "\(viewModel.totalPriceValue) $"
+            orderNumber.text = "\(viewModel.orderCount)"
         }
     }
     

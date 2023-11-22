@@ -9,20 +9,30 @@ import UIKit
 
 class FavoritePageViewController: UIViewController {
     
+    @IBOutlet weak var noFavoriteLabel: UILabel!
     var viewModel =  FavoritePageViewModel()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setUpTableView()
+        hideNoFavoriteLabel()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.refreshData()
         tableView.reloadData()
+        hideNoFavoriteLabel()
     }
     
-    
+    func hideNoFavoriteLabel(){
+        if !viewModel.productData.filter({ $0.favorited == true }).isEmpty {
+            noFavoriteLabel.isHidden = true
+        }else{
+            noFavoriteLabel.isHidden = false
+        }
+    }
     func setUpTableView(){
         tableView.dataSource = self
         tableView.delegate = self
@@ -87,6 +97,7 @@ extension FavoritePageViewController: UITableViewDelegate, UITableViewDataSource
             tableView.deleteRows(at: [indexPath], with: .fade)
 
             ParserforFav.shared.writeData(to: "productLocal.json", data: viewModel.productData)
+            hideNoFavoriteLabel()
         }
     }
 

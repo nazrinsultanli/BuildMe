@@ -26,11 +26,6 @@ class LoginPageViewController: UIViewController {
         
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-         viewModel = LoginPageViewModel()
-    }
-    
     private func setupUI(){
 
             emailTextField.layer.cornerRadius = 25

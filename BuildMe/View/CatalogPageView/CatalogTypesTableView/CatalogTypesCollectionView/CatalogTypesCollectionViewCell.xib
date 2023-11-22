@@ -42,8 +42,8 @@
                 <constraint firstItem="zOA-a9-hhE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zj0-Bm-og3"/>
             </constraints>
             <connections>
-                <outlet property="backColor" destination="hz7-AX-Wgp" id="dLb-Vc-xXg"/>
-                <outlet property="categoryName" destination="zOA-a9-hhE" id="CvJ-pM-owC"/>
+                <outlet property="backColor" destination="hz7-AX-Wgp" id="57h-gA-Xds"/>
+                <outlet property="categoryName" destination="zOA-a9-hhE" id="V8d-VJ-6Zj"/>
             </connections>
             <point key="canvasLocation" x="70" y="-12"/>
         </collectionViewCell>
