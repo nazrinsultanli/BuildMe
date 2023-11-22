@@ -511,7 +511,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="iCS-Tv-f92">
-                                <rect key="frame" x="20" y="285.66666666666663" width="353" height="280.66666666666663"/>
+                                <rect key="frame" x="20" y="279.66666666666663" width="353" height="292.66666666666663"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aau-32-ruj">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="30"/>
@@ -531,8 +531,14 @@
                                             <constraint firstAttribute="height" constant="50" id="MMC-3M-NMZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
                                     </textField>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Correct Card Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqI-v3-0G0">
+                                        <rect key="frame" x="0.0" y="130.33333333333331" width="353" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4k-y0-HUQ">
                                         <rect key="frame" x="0.0" y="136.33333333333331" width="353" height="20.333333333333343"/>
                                         <subviews>
@@ -559,7 +565,7 @@
                                                     <constraint firstAttribute="width" constant="100" id="D3V-kH-M0i"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yEH-9J-Qva">
                                                 <rect key="frame" x="100" y="0.0" width="100" height="50"/>
@@ -567,7 +573,7 @@
                                                     <constraint firstAttribute="width" constant="100" id="k3a-jf-Vyr"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3yJ-Je-TVa">
                                                 <rect key="frame" x="200" y="0.0" width="83" height="50"/>
@@ -579,15 +585,32 @@
                                                     <constraint firstAttribute="width" constant="70" id="gS6-jF-flU"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="EB5-FS-Rtf"/>
                                         </constraints>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGn-kw-Y8V">
+                                        <rect key="frame" x="0.0" y="230.66666666666663" width="353" height="0.0"/>
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Month And Correctly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6J6-Zg-zJ8">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="15.666666666666666"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVV should be 3 Digits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3o-Jc-zxF">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="15.666666666666666"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lab-cf-3ef">
-                                        <rect key="frame" x="0.0" y="230.66666666666669" width="353" height="50"/>
+                                        <rect key="frame" x="0.0" y="242.66666666666669" width="353" height="50"/>
                                         <color key="backgroundColor" name="mainC"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="bV3-yV-GHs"/>
@@ -600,6 +623,9 @@
                                                 <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="checkOutButton:" destination="h7E-8h-l9K" eventType="touchUpInside" id="1xd-BJ-3fI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -613,6 +639,15 @@
                             <constraint firstItem="iCS-Tv-f92" firstAttribute="centerY" secondItem="Gvk-Jx-48f" secondAttribute="centerY" id="shs-CG-3pd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cardNumber" destination="oNV-Po-Lm5" id="3qq-mq-aha"/>
+                        <outlet property="cardNumberWrong" destination="pqI-v3-0G0" id="bLB-VD-8F9"/>
+                        <outlet property="cvv" destination="TZO-6R-R1Y" id="46l-ig-0ot"/>
+                        <outlet property="cvvWrong" destination="m3o-Jc-zxF" id="R77-VK-O1L"/>
+                        <outlet property="month" destination="osZ-mU-bup" id="PBr-I3-spo"/>
+                        <outlet property="monthAndYearWrong" destination="6J6-Zg-zJ8" id="w7n-dk-gmT"/>
+                        <outlet property="year" destination="yEH-9J-Qva" id="Iqi-HC-720"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fi1-uY-frS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -83,7 +83,7 @@ class ProductPageController: UIViewController {
     
 
     func updateUI(for product: PRODUCTJs) {
-        viewModel.totalPriceValue = Double(product.order) * product.price
+        viewModel.totalPriceValue = Double(viewModel.orderCount) * product.price
         totalPrice.text = "\(viewModel.totalPriceValue) $"
         orderNumber.text = "\(viewModel.orderCount)"
     }

@@ -14,6 +14,7 @@ class BasketPageViewController: UIViewController {
     @IBOutlet weak var totalValue: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var totalOrderPrice: ((Double) -> Void)?
     var viewModel = BasketPageViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,7 @@ class BasketPageViewController: UIViewController {
             }
             
             totalValue.text = "\(viewModel.total) $"
+        totalOrderPrice?(viewModel.total)
         }
     
     func setUpTableView(){

@@ -49,7 +49,6 @@ extension CatalogCategoryHeaderReusableView: UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let type = viewModel.categoryData[indexPath.item].categoryType else { return }
-        print("reasabel \(type)")
         selectedCategoryforHome?(type)
     }
     
