@@ -29,7 +29,7 @@ class BasketPageViewController: UIViewController {
         tableView.reloadData()
     }
     
-    func notBasketSetUpUi(){
+    func notBasketSetUpUi() {
         if !viewModel.productData.filter({ $0.basketed == true }).isEmpty {
             emptyBasketLabel.isHidden = true
             checkOutButton.isHidden = false
@@ -43,13 +43,11 @@ class BasketPageViewController: UIViewController {
     }
     
     func calculateTotal() {
-            viewModel.total = 0 // Reset total before calculating again
-            
+            viewModel.total = 0
             for product in viewModel.productData where product.basketed {
                 let totalPriceValue = Double(product.order) * product.price
                 viewModel.total += totalPriceValue
             }
-            
             totalValue.text = "\(viewModel.total) $"
         }
     
@@ -57,7 +55,6 @@ class BasketPageViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "BasketTableCell", bundle: nil), forCellReuseIdentifier: "BasketTableCell")
-
         tableView.isEditing = true
         tableView.reloadData()
     }
@@ -67,7 +64,6 @@ class BasketPageViewController: UIViewController {
         cv.total =  viewModel.total
         navigationController?.show(cv, sender: nil)
     }
-    
 }
 
 
@@ -76,20 +72,16 @@ extension BasketPageViewController: UITableViewDelegate, UITableViewDataSource {
         viewModel.productData.filter({ $0.basketed == true }).count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BasketTableCell", for: indexPath) as! BasketTableCell
         cell.setBasketTable(product: viewModel.productData.filter({ $0.basketed == true })[indexPath.row])
-
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let productToDelete = viewModel.productData.filter { $0.basketed == true }[indexPath.row]
-            
             productToDelete.basketed = false
-   
             tableView.deleteRows(at: [indexPath], with: .fade)
 
             ParserforFav.shared.writeData(to: "productLocal.json", data: viewModel.productData)

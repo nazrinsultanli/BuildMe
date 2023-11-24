@@ -23,10 +23,9 @@ class CatalogPageViewController: UIViewController {
     func setCollectionView() {
         collectionViem.delegate = self
         collectionViem.dataSource = self
-        
         let nib = UINib(nibName: "\(CategoryProductCollectionViewCell.self)", bundle: nil)
         collectionViem.register(nib, forCellWithReuseIdentifier: "CategoryProductCollectionViewCell")
-       
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,13 +43,11 @@ class CatalogPageViewController: UIViewController {
     
     @objc func productSelected(_ notification: Notification) {
         if let selectedProduct = notification.object as? PRODUCTJs {
-            // Navigate to the ProductPageController and pass the selected product
             let productPageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductPageController") as! ProductPageController
             productPageVC.viewModel.receivedProductId = selectedProduct.idProduct
             navigationController?.pushViewController(productPageVC, animated: true)
         }
     }
-    
     
     @objc func categorySelectedfromCatalog(_ notification: Notification) {
         if let category = notification.object as? CategoryProduct {
@@ -62,18 +59,16 @@ class CatalogPageViewController: UIViewController {
     }
     deinit {
         NotificationCenter.default.removeObserver(self, name: Notification.Name("ProductSelected"), object: nil)
-        
         NotificationCenter.default.removeObserver(self, name: Notification.Name("SelectedCategoryfromCatalog"), object: nil)
     }
-   
+    
     @IBAction func searcButtonClicked(_ sender: Any) {
-        guard let searchText = searchButton.text?.lowercased() else{
+        guard let searchText = searchButton.text?.lowercased() else {
             return
         }
         viewModel.searchText(searchText: searchText)
         collectionViem.reloadData()
     }
-    
 }
 extension CatalogPageViewController: UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -91,11 +86,11 @@ extension CatalogPageViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let selectedProduct = viewModel.filteredProduct[indexPath.item]
+        let selectedProduct = viewModel.filteredProduct[indexPath.item]
         let controller = storyboard?.instantiateViewController(identifier: "ProductPageController") as! ProductPageController
         controller.viewModel.receivedProductId = selectedProduct.idProduct
         navigationController?.show(controller, sender: nil)
-        }
+    }
     
     //header
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -116,6 +111,8 @@ extension CatalogPageViewController: UICollectionViewDelegate, UICollectionViewD
 
 extension CatalogPageViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print("Typed string: \(string)")
+        print("Full text in textField: \(textField.text ?? "")")
         searcButtonClicked(textField)
         return true
     }

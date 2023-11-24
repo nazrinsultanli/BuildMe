@@ -10,7 +10,6 @@ class ProductPageViewModel {
     var orderCount: Int = 0
 
     init() {
-        // Load data from FileManagerHelper
         productData = ProductJsGenerator.shared.readProducts()
     }
 

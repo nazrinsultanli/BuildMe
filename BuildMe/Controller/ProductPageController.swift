@@ -25,11 +25,10 @@ class ProductPageController: UIViewController {
         if let selectedProduct = viewModel.getInfoById(id: viewModel.receivedProductId) {
             viewModel.favState = selectedProduct.favorited
             setProduct(product: selectedProduct)
-            
         }
     }
     
-    func setProduct(product:PRODUCTJs){
+    func setProduct(product:PRODUCTJs) {
         if (!product.stock){
             inStock.textColor = .red
             inStock.text = "not available"
@@ -49,7 +48,6 @@ class ProductPageController: UIViewController {
         }
         viewModel.updateFavById(id: viewModel.receivedProductId, state: viewModel.favState)
         updateButton()
-        
     }
     
     func updateButton() {
@@ -65,7 +63,6 @@ class ProductPageController: UIViewController {
             if viewModel.orderCount > 0{
                 viewModel.orderCount -= 1
             }
-            
             updatedProduct.order -= viewModel.orderCount
             ParserforFav.shared.writeData(to: "productLocal.json", data: viewModel.productData)
             updateUI(for: updatedProduct)
@@ -102,5 +99,4 @@ class ProductPageController: UIViewController {
             orderNumber.text = "\(viewModel.orderCount)"
         }
     }
-    
 }

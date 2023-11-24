@@ -10,7 +10,6 @@ import RealmSwift
 class UserHelper {
     let myRealm = try! Realm()
     
-    
     func saveItems(userData: User){
         do{
             try myRealm.write{
@@ -22,7 +21,6 @@ class UserHelper {
     }
     
     func fetch() -> [User] {
-        
         do{
             let data = myRealm.objects(User.self)
             return Array(data)

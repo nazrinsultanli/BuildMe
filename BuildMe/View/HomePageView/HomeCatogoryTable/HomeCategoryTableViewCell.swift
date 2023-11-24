@@ -14,19 +14,16 @@ protocol HomeCategoryDelegate {
 class HomeCategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionViewm: UICollectionView!
-    
     var viewModel = HomeCategoryTableViewModel()
-     var delegate: HomeCategoryDelegate?
+    var delegate: HomeCategoryDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setCollectionView()
-        
     }
     func setCollectionView(){
         collectionViewm.dataSource = self
         collectionViewm.delegate = self
-        
         let nib = UINib(nibName: "\(HomeCategoryHeaderCell.self)", bundle: nil)
         collectionViewm.register(nib, forCellWithReuseIdentifier: "HomeCategoryHeaderCell")
     }
@@ -47,8 +44,6 @@ extension HomeCategoryTableViewCell: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         .init(width: 80, height: 80)
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let selectedCategory = viewModel.categoryData[indexPath.item].categoryType else { return }

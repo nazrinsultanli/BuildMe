@@ -13,8 +13,6 @@ class ProductJsGenerator {
     static let shared = ProductJsGenerator()
     var productData = [PRODUCTJs]()
     let helper = ProductJsFileManager()
-    //let emailSaved = UserDefaults().string(forKey: "savedEmail")
-    
     
     func readProducts() -> [PRODUCTJs] {
         helper.readData { item in
@@ -23,11 +21,11 @@ class ProductJsGenerator {
         return productData
     }
     
-    func writeProducts(product: [PRODUCTJs]){
+    func writeProducts(product: [PRODUCTJs]) {
         helper.writeData(product: product)
     }
     
-    init(){
+    init() {
         writeProducts(product: ProductJsParsHelper().productData)
         productData = readProducts()
     }

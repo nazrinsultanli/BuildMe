@@ -10,7 +10,6 @@ import Lottie
 class LoginPageViewController: UIViewController {
     @IBOutlet weak var lottieView: LottieAnimationView!
     @IBOutlet weak var wrongPasswordLabel: UILabel!
-    
     @IBOutlet weak var buttonView: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -23,11 +22,12 @@ class LoginPageViewController: UIViewController {
         wrongPasswordLabel.isHidden = true
         lottieView.play()
         setupUI()
-        
     }
     
-    private func setupUI(){
-
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel = LoginPageViewModel()
+    }
+    private func setupUI() {
             emailTextField.layer.cornerRadius = 25
             emailTextField.layer.borderWidth = 1
             emailTextField.layer.borderColor = UIColor.white.cgColor
@@ -38,7 +38,6 @@ class LoginPageViewController: UIViewController {
             
             buttonView.layer.cornerRadius = 25
             buttonView.layer.borderWidth = 1
-            //buttonView.layer.borderColor = UIColor.black.cgColor
             
             emailTextField.layer.masksToBounds = true
             passwordTextField.layer.masksToBounds = true
@@ -51,13 +50,8 @@ class LoginPageViewController: UIViewController {
         UserDefaults.standard.setValue(emailTextField.text, forKey: "savedEmail")
         
         if viewModel.userData.contains(where: {$0.email == emailTextField.text && $0.password == passwordTextField.text}){
-            
             let controller = storyboard?.instantiateViewController(identifier: "HomePageViewController") as! HomePageViewController
             navigationController?.show(controller, sender: nil)
-           // if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//               let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-//                sceneDelegate.setMainRootViewController(windowScene: windowScene)
-//            }
         }
         else{
             wrongPasswordLabel.isHidden = false
@@ -68,7 +62,6 @@ class LoginPageViewController: UIViewController {
     @IBAction func registerButtonClicked(_ sender: Any) {
         
         let registerPage = storyboard?.instantiateViewController(withIdentifier: "RegisterPageViewController") as! RegisterPageViewController
-        
         //--3--- burada cagirmaq
         registerPage.registerButtonClickedCallBackLogin = { a, b in
             self.emailTextField?.text = a
@@ -76,14 +69,10 @@ class LoginPageViewController: UIViewController {
         }
         navigationController?.show(registerPage, sender: nil)
     }
-    
-    
-    
 }
 
 
 extension LoginPageViewController: UITextFieldDelegate {
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //textField.resignFirstResponder() // tek ishletsen, hansi textfielde bassan acilirbaglanir
         wrongPasswordLabel.isHidden = true
@@ -95,5 +84,4 @@ extension LoginPageViewController: UITextFieldDelegate {
         }
         return true
     }
-
 }

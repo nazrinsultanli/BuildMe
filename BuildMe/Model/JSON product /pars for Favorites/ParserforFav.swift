@@ -6,7 +6,6 @@ import Foundation
 
 class ParserforFav {
     static let shared = ParserforFav()
-
     private init() {}
 
     private func getFilePath(for fileName: String) -> URL {
@@ -16,7 +15,6 @@ class ParserforFav {
 
     func readData<T: Decodable>(from fileName: String, completion: @escaping (T?) -> Void) {
         let filePath = getFilePath(for: fileName)
-
         do {
             let data = try Data(contentsOf: filePath)
             let decodedData = try JSONDecoder().decode(T.self, from: data)
@@ -29,7 +27,6 @@ class ParserforFav {
 
     func writeData<T: Encodable>(to fileName: String, data: T) {
         let filePath = getFilePath(for: fileName)
-
         do {
             let encodedData = try JSONEncoder().encode(data)
             try encodedData.write(to: filePath)
@@ -37,6 +34,4 @@ class ParserforFav {
             print(error.localizedDescription)
         }
     }
-    
-    
 }

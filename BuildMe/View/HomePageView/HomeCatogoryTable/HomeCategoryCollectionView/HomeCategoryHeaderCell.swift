@@ -21,7 +21,6 @@ class HomeCategoryHeaderCell: UICollectionViewCell {
         self.categoryLabel.text = category.categoryType?.rawValue
         self.categoryImage.image  = UIImage(named: category.imageName)
     }
-
     
     func setView(){
         categoryImage.layer.cornerRadius = 15

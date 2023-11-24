@@ -14,7 +14,6 @@ class CatalogPageViewModel {
     var selectedCategoryType: CategoryProduct?
     var productData = ProductJsGenerator().productData
     
-    
     func getData() {
         if (selectedCategoryType != nil) {
             filteredProduct = productData.filter({ $0.categoryType == selectedCategoryType?.rawValue ?? ""})
@@ -32,18 +31,15 @@ class CatalogPageViewModel {
             return filteredProduct
         }
     }
-    func searchText (searchText: String){
-        if searchText.isEmpty {
-            filteredProduct = productData
-        }
-        else{
-            filteredProduct = productData.filter {
-                $0.brandName.lowercased().contains(searchText)
-            }
-        }
-    }
+    func searchText(searchText: String) {
+           if searchText.isEmpty {
+               filteredProduct = productData
+           } else {
+               filteredProduct = productData.filter {
+                   $0.brandName.lowercased().contains(searchText) || $0.modelName.lowercased().contains(searchText)
+               }
+           }
+       }
 
-
-    // Inside your filterData method
   
 }

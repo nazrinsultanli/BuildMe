@@ -15,7 +15,6 @@ class RegisterPageViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var fullNameTextField: UITextField!
     
-//    var viewModel = RegisterPageViewModel()
     var userStorage = UserHelper()
     
     //--1--
@@ -25,12 +24,9 @@ class RegisterPageViewController: UIViewController {
         super.viewDidLoad()
         title = "Register"
         lottiView.play()
-
-     
     }
     
     @IBAction func registerButtonClicked(_ sender: Any) {
-        
         let enteredFullName = fullNameTextField.text ?? ""
         let enteredEmail = emailTextField.text ?? ""
         let enteredPassword = passwordTextField.text ?? ""
@@ -44,18 +40,10 @@ class RegisterPageViewController: UIViewController {
             let newUser = User(fullName: enteredFullName, 
                                email: enteredEmail, 
                                password: enteredPassword)
-//            viewModel.userData.append(newUser)
-//            viewModel.saveItems()
             userStorage.saveItems(userData: newUser)
         }
-        
-        
-        
         //--2--
         registerButtonClickedCallBackLogin?(enteredEmail, enteredPassword)
         navigationController?.popViewController(animated: true)
-
     }
-    
-    
 }

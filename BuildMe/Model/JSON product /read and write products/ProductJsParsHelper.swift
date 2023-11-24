@@ -10,12 +10,11 @@ class ProductJsParsHelper{
     let parser = Parser()
     var productData = [PRODUCTJs]()
     
-    init()
-    {
+    init() {
         pars()
     }
     
-    func pars(){
+    func pars() {
         parser.parseJsonFile{ items in
             self.productData = items
         }

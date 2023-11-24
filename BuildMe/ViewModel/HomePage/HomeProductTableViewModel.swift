@@ -8,7 +8,5 @@
 import Foundation
 
 class HomeProductTableViewModel {
-
     var filteredProducts: [PRODUCTJs] = []
-
 }

@@ -9,21 +9,15 @@ import Foundation
 class Parser{
     
     func parseJsonFile (  completion: ( ( [PRODUCTJs] )  ->Void  )  ) {
-        if let file = Bundle.main.url(forResource: "PRODUCTJSON", withExtension: "json"){
-            
+        if let file = Bundle.main.url(forResource: "PRODUCTJSON", withExtension: "json") {
             do{
                 let data = try Data(contentsOf: file)
                 let items = try JSONDecoder().decode([PRODUCTJs].self, from: data)
                 completion(items)
-                
             }
             catch{
                 print(error.localizedDescription)
             }
-            
-            
         }
-        
     }
-    
 }

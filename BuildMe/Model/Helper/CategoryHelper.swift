@@ -4,47 +4,6 @@
 //
 //  Created by Nazrin Sultanlı on 12.11.23.
 //
-/*
-import Foundation
-import RealmSwift
-class CategoryHelper {
-    let myRealm = try! Realm()
-    var categoryData = [Categories(categoryType: .laminate, imageName: "imageLA"),
-                        Categories(categoryType: .kafel, imageName: "imageKA"),
-                        Categories(categoryType: .ceramics, imageName: "imageCE"),
-                        Categories(categoryType: .accesories, imageName: "imageAC"),
-                        Categories(categoryType: .asmaTavan, imageName: "imageAT")
-    ]
-    
-    func saveItems() {
-        do{
-            try myRealm.write{
-                myRealm.add(categoryData)
-                fetch()
-            }
-        } catch{
-            print(error.localizedDescription)
-        }
-    }
-    
-    func fetch(){
-        let data = myRealm.objects(Categories.self)
-        categoryData.removeAll()
-        categoryData.append(contentsOf: data)
-        
-    }
-}
-
-
-*/
-
-
-//
-//  CatalogGenerator.swift
-//  BuildMe
-//
-//  Created by Nazrin Sultanlı on 12.11.23.
-//
 
 import Foundation
 import RealmSwift
@@ -65,15 +24,9 @@ class CategoryHelper: ObservableObject {
         do {
             let config = Realm.Configuration(schemaVersion: 1, migrationBlock: { migration, oldSchemaVersion in
                 if oldSchemaVersion < 1 {
-                    // Perform migration if needed
                 }
             })
-
             Realm.Configuration.defaultConfiguration = config
-            
-            
-            
-
             localRealm = try Realm(configuration: config)
         } catch {
             print("Error opening Realm", error)
@@ -112,14 +65,10 @@ class CategoryHelper: ObservableObject {
             }
         }
     }
-
-
     init() {
         openRealm()
-        //delete() // it throw error
         saveItems()
         fetch()
-        
     }
 }
 

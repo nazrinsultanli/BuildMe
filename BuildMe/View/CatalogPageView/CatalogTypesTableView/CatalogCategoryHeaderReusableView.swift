@@ -9,12 +9,8 @@ import UIKit
 
 class CatalogCategoryHeaderReusableView: UICollectionReusableView {
     var viewModel = CatalogPageViewModel()
-    
     @IBOutlet weak var collectionViewm: UICollectionView!
     var selectedCategoryforHome: ((CategoryProduct) -> Void)?
-    
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +18,6 @@ class CatalogCategoryHeaderReusableView: UICollectionReusableView {
     }
     
     func setTableView() {
-
         collectionViewm.register(UINib(nibName: "\(CatalogTypesCollectionViewCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(CatalogTypesCollectionViewCell.self)")
         
         collectionViewm.dataSource = self
@@ -34,7 +29,6 @@ class CatalogCategoryHeaderReusableView: UICollectionReusableView {
 extension CatalogCategoryHeaderReusableView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.categoryData.count
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

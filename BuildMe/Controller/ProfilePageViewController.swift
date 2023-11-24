@@ -9,7 +9,6 @@ import UIKit
 
 class ProfilePageViewController: UIViewController {
     @IBOutlet weak var passwordLabel: UILabel!
-    
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var fullNameLabel: UILabel!
@@ -31,9 +30,7 @@ class ProfilePageViewController: UIViewController {
     func checkSign(){
         if UserDefaults.standard.bool(forKey: "LoggedIn"){
             signed()
-        }
-        else
-        {
+        }else {
             nonSigned()
         }
     }
@@ -62,7 +59,6 @@ class ProfilePageViewController: UIViewController {
     }
     
     @IBAction func logInButtonClicked(_ sender: Any) {
-       
         let controller = storyboard?.instantiateViewController(identifier: "LoginPageViewController") as! LoginPageViewController
         navigationController?.show(controller, sender: nil)
     }
@@ -71,5 +67,4 @@ class ProfilePageViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "LoggedIn")
         checkSign()
     }
-    
 }
