@@ -32,7 +32,16 @@ class CatalogPageViewModel {
             return filteredProduct
         }
     }
-    
+    func searchText (searchText: String){
+        if searchText.isEmpty {
+            filteredProduct = productData
+        }
+        else{
+            filteredProduct = productData.filter {
+                $0.brandName.lowercased().contains(searchText)
+            }
+        }
+    }
 
 
     // Inside your filterData method

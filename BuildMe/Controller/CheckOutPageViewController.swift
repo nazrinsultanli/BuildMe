@@ -16,6 +16,7 @@ class CheckOutPageViewController: UIViewController {
     @IBOutlet weak var year: UITextField!
     @IBOutlet weak var month: UITextField!
     @IBOutlet weak var cardNumber: UITextField!
+    
     var total: Double = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,14 +52,17 @@ class CheckOutPageViewController: UIViewController {
     
     @IBAction func checkOutButton(_ sender: Any) {
         checkWrongData()
-        let cv = storyboard?.instantiateViewController(identifier: "BasketPageViewController") as! BasketPageViewController
-        cv.totalOrderPrice = { total in
-            self.total = total
-        }
+        
         let alert = UIAlertController(title: "SuccessFull", message: "\(total) $ is paid!", preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "OK", style: .default)
+        let okButton = UIAlertAction(title: "OK", style: .default) { _ in
+            self.navigationController?.popToRootViewController(animated: true)
+            self.tabBarController?.selectedIndex = 0
+            self.navigationController?.popToRootViewController(animated: true)
+        }
         alert.addAction(okButton)
         present(alert,animated: true)
+        
+        
 
     }
     

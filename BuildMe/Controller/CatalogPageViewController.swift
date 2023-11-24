@@ -11,6 +11,7 @@ class CatalogPageViewController: UIViewController {
     @IBOutlet weak var collectionViem: UICollectionView!
     var viewModel = CatalogPageViewModel()
     
+    @IBOutlet weak var searchButton: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()
@@ -64,6 +65,14 @@ class CatalogPageViewController: UIViewController {
         
         NotificationCenter.default.removeObserver(self, name: Notification.Name("SelectedCategoryfromCatalog"), object: nil)
     }
+   
+    @IBAction func searcButtonClicked(_ sender: Any) {
+        guard let searchText = searchButton.text?.lowercased() else{
+            return
+        }
+        viewModel.searchText(searchText: searchText)
+        collectionViem.reloadData()
+    }
     
 }
 extension CatalogPageViewController: UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
@@ -104,3 +113,10 @@ extension CatalogPageViewController: UICollectionViewDelegate, UICollectionViewD
     }
 }
 
+
+extension CatalogPageViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        searcButtonClicked(textField)
+        return true
+    }
+}
